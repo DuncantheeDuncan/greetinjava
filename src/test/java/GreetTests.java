@@ -1,4 +1,4 @@
-import greetings.greet.Greet;
+
 import greetings.greet.GreetPerson;
 import org.junit.Test;
 
@@ -10,8 +10,10 @@ public class GreetTests {
   GreetPerson greetperson = new GreetPerson();
 
 
-  assertEquals(greetperson.greet("Phumlani","Xhosa"), "Molo, Phumlani");
- assertEquals(1, greetperson.getCountForAllUser());
+  assertEquals(greetperson.greet("jack","Xhosa"), "Molo, jack");
+  assertEquals(greetperson.greet("Phumlani","Zulu"), "Saw'bona, Phumlani");
+  assertEquals(greetperson.greet("Phumlani","English"), "Hello, Phumlani");
+  assertEquals(2, greetperson.getCountForAllUser());
 
 
  }

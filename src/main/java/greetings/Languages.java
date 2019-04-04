@@ -2,7 +2,7 @@ package greetings;
 
 public enum Languages {
 
-     Zulu("Sawubona"),
+     Zulu("Saw'bona"),
     Xhosa("Molo"),
     English("Hello");
 
