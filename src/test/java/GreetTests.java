@@ -10,8 +10,9 @@ public class GreetTests {
   GreetPerson greetperson = new GreetPerson();
 
 
- assertEquals(greetperson.greet("Phumlani","Zulu"), "Sawubona, Phumlani");
-  //greet.scanner
+  assertEquals(greetperson.greet("Phumlani","Xhosa"), "Molo, Phumlani");
+ assertEquals(1, greetperson.getCountForAllUser());
+
 
  }
 

@@ -2,18 +2,18 @@ package greetings;
 
 public enum Languages {
 
-     zulu("Sawubona"),
+     Zulu("Sawubona"),
     Xhosa("Molo"),
     English("Hello");
-private String Languages;
-    Languages(String greeting) {
 
-        this.Languages = greeting;
-        System.out.println(greeting);
+    private String greeting;
+
+    Languages(String greeting) {
+        this.greeting = greeting;
     }
 
 
-    public void setLanguages(String languages) {
-        Languages = languages;
+    public String getGreeting() {
+        return greeting;
     }
 }
