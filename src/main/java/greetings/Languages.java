@@ -10,10 +10,12 @@ public enum Languages {
 
     Languages(String greeting) {
         this.greeting = greeting;
+
     }
 
 
     public String getGreeting() {
+
         return greeting;
     }
 }
