@@ -5,13 +5,14 @@ import java.util.Map;
 
 public enum Languages {
 
-     Zulu("Saw'bona"),
-    Xhosa("Molo"),
-    English("Hello");
+     zulu("Saw'bona"),
+    xhosa("Molo"),
+    english("Hello");
 
-    private String greeting;
 
-    Languages(String greeting) {
+    public String greeting;
+
+   Languages(String greeting) {
         this.greeting = greeting;
 
     }

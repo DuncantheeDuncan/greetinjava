@@ -1,13 +1,14 @@
 package greetings;
 
-public abstract class GreetBase implements Commands {
-private  int greetCounter = 0;
+import java.util.HashMap;
+import java.util.Map;
 
-protected  void counterNUmber(int numOfUsers){
+public class GreetBase implements Commands {
+    private  int greetCounter = 1;
+    Map< String, Integer> namesMap = new HashMap<>();
+    protected  void counterNUmber(int numOfUsers){
     greetCounter+= numOfUsers;
-
-}
-
+    }
 
     public int counter() {
 
@@ -18,14 +19,24 @@ protected  void counterNUmber(int numOfUsers){
 
     // im setting the greet counter to 0
     //when clear() is called.
-public void clear(){
+    public void clear(){
+        namesMap.clear();
+    }
+    public String greet(String name, String lang) {
+        if (namesMap.containsKey(name)) {
+            namesMap.put(name, namesMap.get(name) + 1);
+        }
+        namesMap.put(name, greetCounter);
 
-    greetCounter = 0;
+        return Languages.valueOf(lang).getGreeting() + " " + name;
+    }
+    public Map<String, Integer> greeted() {
+        return namesMap;
+    }
 
-}
+    public void exit() {
+        System.exit(0);
+    }
 
-public void  exit(){
-    System.exit(0);
-}
 
 }
