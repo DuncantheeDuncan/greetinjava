@@ -1,5 +1,8 @@
 package greetings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum Languages {
 
      Zulu("Saw'bona"),
