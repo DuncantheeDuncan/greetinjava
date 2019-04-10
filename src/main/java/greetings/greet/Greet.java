@@ -1,3 +1,4 @@
+/*
 package greetings.greet;
 
 import greetings.GreetBase;
@@ -30,3 +31,4 @@ public class Greet extends GreetBase {
 
     }
 }
+*/

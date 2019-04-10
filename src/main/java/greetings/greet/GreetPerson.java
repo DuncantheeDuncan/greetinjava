@@ -1,21 +1,12 @@
 package greetings.greet;
 
-import greetings.GreetBase;
 import greetings.Languages;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-
-
 
 public class GreetPerson {
 
-
-
     Map< String, Integer> namesMap = new HashMap<>();
-    GreetBase greetBase = new GreetBase();
-
     private int counter = 1;
 
     public String greet(String name, String language) {
@@ -88,74 +79,4 @@ public class GreetPerson {
 
         return namesMap.size();
     }
-
-
-
-    public static void main(String[] args){
-        Map< String, Integer> namesMap = new HashMap<>();
-        GreetBase greetBase = new GreetBase();
-
-        GreetPerson greetPerson = new GreetPerson();
-        Scanner scanner = new Scanner(System.in);
-        while (true){
-
-
-            System.out.println("Waiting for your command... ");
-            String commands = scanner.nextLine();
-            System.out.println(commands);
-            String[] commandArray = commands.split(" ");
-            if (commandArray.length == 1){
-                String  ullimi = "Xhosa";
-
-                String command = commandArray[0].toLowerCase();
-                if (command.equals("exit")) {
-                    break;
-                }
-                else if (command.equals("greeted")) {
-                    System.out.println(greetBase.greeted());
-                }
-//                String Lang = Languages.valueOf(ullimi).getGreeting();
-//                Languages.valueOf(ullimi).getGreeting();
-//                System.out.println(Lang);
-
-
-
-
-
-
-
-                try {
-
-                    if ("greet".equals(command)){
-                        // System.out.println(lang);
-                        System.out.println("you greeted " +" ");
-
-                    }
-
-                }catch (Exception e){
-
-                }
-
-            }
-            if (commandArray.length == 2) {
-                String command = commandArray[0].toLowerCase();
-                if (command.equals("greeted")) {
-                    System.out.println(greetBase.greeted());
-                }
-            }
-            else if (commandArray.length == 3) {
-                String command = commandArray[0].toLowerCase();
-                if (command.equals("greet")) {
-                    String name = commandArray[1].toLowerCase();
-                    String language = commandArray[2].toLowerCase();
-                    System.out.println(greetBase.greet(name, language));
-                }
-            }
-        }
-
-    }
-
-
-
 }
-

@@ -1,18 +1,14 @@
 package greetings;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public enum Languages {
 
-     zulu("Saw'bona"),
-    xhosa("Molo"),
-    english("Hello");
+    Zulu("Saw'bona"),
+    Xhosa("Molo"),
+    English("Hello");
 
+    private String greeting;
 
-    public String greeting;
-
-   Languages(String greeting) {
+    Languages(String greeting) {
         this.greeting = greeting;
 
     }
@@ -23,3 +19,7 @@ public enum Languages {
         return greeting;
     }
 }
+/*
+ * Pet = enum
+ *
+ * */

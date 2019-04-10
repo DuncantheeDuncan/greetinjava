@@ -1,8 +1,11 @@
+/*
+
 package greetings;
 
 import java.util.HashMap;
 import java.util.Map;
-
+*/
+/*
 public class GreetBase implements Commands {
     private  int greetCounter = 1;
     Map< String, Integer> namesMap = new HashMap<>();
@@ -40,3 +43,5 @@ public class GreetBase implements Commands {
 
 
 }
+*/
+
