@@ -19,7 +19,3 @@ public enum Languages {
         return greeting;
     }
 }
-/*
- * Pet = enum
- *
- * */

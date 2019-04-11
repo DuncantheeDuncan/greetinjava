@@ -1,5 +1,6 @@
 
-import greetings.greet.GreetPerson;
+import greetings.Languages;
+import greetings.greet.GreetAPerson;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -7,7 +8,9 @@ import static org.junit.Assert.assertEquals;
 public class GreetTests {
     @Test
     public void testGreet(){
-        GreetPerson greetperson = new GreetPerson();
+       GreetAPerson greetperson =new GreetAPerson();
+
+
 
         assertEquals(greetperson.greet("jack","Xhosa"), "Molo, jack");
         assertEquals(greetperson.greet("Phumlani","Zulu"), "Saw'bona, Phumlani");
@@ -18,7 +21,7 @@ public class GreetTests {
 
     @Test
     public void getCountForAllUser(){
-        GreetPerson greetPerson =new GreetPerson();
+        GreetAPerson greetPerson =new GreetAPerson();
         assertEquals(greetPerson.greet("jack","Xhosa"), "Molo, jack");
         assertEquals(greetPerson.greet("Phumlani","Zulu"), "Saw'bona, Phumlani");
         assertEquals(greetPerson.greet("Phumlani","Zulu"), "Saw'bona, Phumlani");
@@ -26,7 +29,7 @@ public class GreetTests {
     }
     @Test
     public void testGreetedNames(){
-        GreetPerson greetPerson = new GreetPerson();
+        GreetAPerson greetPerson = new GreetAPerson();
         assertEquals(greetPerson.greet("jack","Xhosa"), "Molo, jack");
         assertEquals(greetPerson.greet("Phumlani","Zulu"), "Saw'bona, Phumlani");
         assertEquals(greetPerson.greet("Mabaso","English"), "Hello, Mabaso");
@@ -39,7 +42,7 @@ public class GreetTests {
 
     @Test
     public void totalNoOfDifferentNamesGreeted(){
-        GreetPerson greetPerson =new GreetPerson();
+        GreetAPerson greetPerson =new GreetAPerson();
         assertEquals(greetPerson.greet("jack","Xhosa"), "Molo, jack");
         assertEquals(greetPerson.greet("jack","Xhosa"), "Molo, jack");
         assertEquals(greetPerson.greet("jack","Xhosa"), "Molo, jack");
@@ -56,6 +59,6 @@ public class GreetTests {
     public void languageTest() {
         String userName = "Bheki", ullimi = "Xhosa";
 
-       // assertEquals(Languages.valueOf(ullimi).getGreeting(), "Saw'bona");
+        assertEquals(Languages.valueOf(ullimi).getGreeting(), "Saw'bona");
     }
 }
