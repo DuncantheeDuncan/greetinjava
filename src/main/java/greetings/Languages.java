@@ -2,9 +2,11 @@ package greetings;
 
 public enum Languages {
 
-    Zulu("Saw'bona"),
-    Xhosa("Molo"),
-    English("Hello");
+    zulu("Saw'bona"),
+    xhosa("Molo"),
+    chinese("Nǐ hǎo"),
+    english("Hello");
+
 
     private String greeting;
 

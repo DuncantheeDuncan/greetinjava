@@ -7,21 +7,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
-
 public class GreetAPerson {
-
-
-
     Map< String, Integer> namesMap = new HashMap<>();
-    GreetBase greetBase = new GreetBase();
 
-    private int counter = 1;
+//    GreetBase greetBase = new GreetBase();
+
+//    private int counter = 1;
 
     public String greet(String name, String language) {
         if(!namesMap.containsKey(name)){
             System.out.println("EXECUTED1");
-            namesMap.put(name,0);
+            namesMap.put(name,0);// Zero makes my test 'totalNumberOfDifferentNamesGreeted' to pass
         }
 
 
@@ -50,7 +46,7 @@ public class GreetAPerson {
         for (Integer nameCount :namesMap.values()){
 
             tnumberGreeted+=nameCount;
-            System.out.println("EXECUTED3 New user found " +tnumberGreeted+" ");
+            System.out.println("EXECUTED3 New user found " + tnumberGreeted+" ");
         }
         return tnumberGreeted;
     }
@@ -92,51 +88,50 @@ public class GreetAPerson {
 
 
     public static void main(String[] args){
-        Map< String, Integer> namesMap = new HashMap<>();
+      //  Map< String, Integer> namesMap = new HashMap<>();
         GreetBase greetBase = new GreetBase();
-
-        GreetAPerson greetPerson = new GreetAPerson();
+        //GreetAPerson greetPerson = new GreetAPerson();
         Scanner scanner = new Scanner(System.in);
         while (true){
-
-
             System.out.println("Waiting for your command... ");
             String commands = scanner.nextLine();
-            System.out.println(commands);
+           // System.out.println(commands);
             String[] commandArray = commands.split(" ");
-            if (commandArray.length == 1){
-                String  ullimi = "Xhosa";
 
-                String command = commandArray[0].toLowerCase();
+            if (commandArray.length == 1){
+                String command = commandArray[0].toLowerCase(); // .trim() is not picking up?!!
                 if (command.equals("exit")) {
-                    break;
+                    greetBase.exit();
                 }
                 else if (command.equals("greeted")) {
                     System.out.println(greetBase.greeted());
+                }else if(command.equals("help")){
+
+                    System.out.println(greetBase.help());
+                }else if(command.equals("clear")){
+
+                    greetBase.clear();
+                }else if(command.equals("greet")){
+
+                    System.out.println("Expected greet + Name  and or language name.\n");
+
+                }else if(command.equals("counter")){
+//                    System.out.println(greetBase.);
                 }
-//                String Lang = Languages.valueOf(ullimi).getGreeting();
-//                Languages.valueOf(ullimi).getGreeting();
-//                System.out.println(Lang);
-
-                try {
-
-                    if ("greet".equals(command)){
-                        // System.out.println(lang);
-                        System.out.println("you greeted " +" ");
-
-                    }
-
-                }catch (Exception e){
-
+                else {
+                    System.out.println("Invalid command Try 'Help' \n");
                 }
 
             }
+
+
             if (commandArray.length == 2) {
                 String command = commandArray[0].toLowerCase();
                 if (command.equals("greeted")) {
                     System.out.println(greetBase.greeted());
                 }
             }
+
             else if (commandArray.length == 3) {
                 String command = commandArray[0].toLowerCase();
                 if (command.equals("greet")) {
@@ -144,6 +139,7 @@ public class GreetAPerson {
                     String language = commandArray[2].toLowerCase();
                     System.out.println(greetBase.greet(name, language));
                 }
+//
             }
         }
 

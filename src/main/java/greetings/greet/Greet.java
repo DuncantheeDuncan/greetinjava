@@ -25,8 +25,8 @@ public class Greet extends GreetBase {
 
         Map<String, String> map = new HashMap<>();
         map.put("zulu","Sawubona");
-        map.put("English","Hello");
-        map.put("Xhosa","Molo");
+        map.put("english","Hello");
+        map.put("xhosa","Molo");
 
 
     }
