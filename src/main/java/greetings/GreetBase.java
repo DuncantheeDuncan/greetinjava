@@ -13,9 +13,11 @@ public class GreetBase implements Commands {
     public   void counterNUmber(int numOfUsers){
     greetCounter+= numOfUsers;
     numOfUsers++;
+
     }
 
     public int counter() {
+      //  greetCounter++;
 
 
         return greetCounter;
@@ -36,6 +38,7 @@ public class GreetBase implements Commands {
         return Languages.valueOf(lang).getGreeting() + " " + name;
     }
     public Map<String, Integer> greeted() {
+
         return namesMap;
     }
 

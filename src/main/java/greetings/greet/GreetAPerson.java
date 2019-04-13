@@ -116,7 +116,7 @@ public class GreetAPerson {
                     System.out.println("Expected greet + Name  and or language name.\n");
 
                 }else if(command.equals("counter")){
-//                    System.out.println(greetBase.);
+                    System.out.println(greetBase.counter());// to Fix the counter
                 }
                 else {
                     System.out.println("Invalid command Try 'Help' \n");
@@ -128,9 +128,12 @@ public class GreetAPerson {
             if (commandArray.length == 2) {
                 String command = commandArray[0].toLowerCase();
                 if (command.equals("greeted")) {
+                    String name = commandArray[1].toLowerCase();
                     System.out.println(greetBase.greeted());
                 }
             }
+
+
 
             else if (commandArray.length == 3) {
                 String command = commandArray[0].toLowerCase();
