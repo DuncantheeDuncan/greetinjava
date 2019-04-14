@@ -14,6 +14,7 @@ public interface Commands {
     String help(); // returns help
     void exit(); // exit the  application
     int counter(); //counts unique users
+    int totalNoOfDifferentnamesGreeted();
 
 
 

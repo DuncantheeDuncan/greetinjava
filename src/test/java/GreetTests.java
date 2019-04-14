@@ -1,6 +1,7 @@
 
 import greetings.Languages;
 import greetings.greet.GreetAPerson;
+import greetings.GreetBase;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -22,44 +23,70 @@ public class GreetTests {
     @Test
     public void getCountForAllUser(){
         GreetAPerson greetPerson =new GreetAPerson();
+        GreetBase greetBase = new GreetBase();
         assertEquals(greetPerson.greet("jack","xhosa"), "Molo, jack");
+        assertEquals(greetPerson.greet("jack","chinese"), "Nǐ hǎo, jack");
+
+//        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
+//        assertEquals(greetBase.greet("jack","chinese"), "Nǐ hǎo, jack");
+
         assertEquals(greetPerson.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
         assertEquals(greetPerson.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
         assertEquals(3, greetPerson.getCountForAllUser());
+//        assertEquals(2,GreetBase.getCountForAllUser());
     }
     @Test
-    public void testGreetedNames(){
+    public void testGreetednames(){
         GreetAPerson greetPerson = new GreetAPerson();
         assertEquals(greetPerson.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetPerson.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
         assertEquals(greetPerson.greet("Mabaso","english"), "Hello, Mabaso");
 
         assertEquals(1,greetPerson.totalNumberGreeted("Phumlani"));
+        assertEquals(1,greetPerson.totalNumberGreeted("Phumlani"));
         assertEquals(1,greetPerson.totalNumberGreeted("jack"));
         assertEquals(1,greetPerson.totalNumberGreeted("Mabaso"));
 
     }
-
+// testting 'counterNUmber' from base
     @Test
-    public void totalNoOfDifferentNamesGreeted(){
+    public void testCounterNUmberFromBase(){
+        GreetAPerson greetPerson = new GreetAPerson();
+        GreetBase greetBase = new GreetBase();
+
+        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
+        assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
+        assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
+        assertEquals(greetBase.greet("Mabaso","english"), "Hello, Mabaso");
+
+        assertEquals(2,greetBase.totalNoOfDifferentnamesGreeted());
+
+
+    }
+    @Test
+    public void totalNoOfDifferentnamesGreeted(){
         /*this test adds duplicates*/
         GreetAPerson greetPerson =new GreetAPerson();
-        assertEquals(greetPerson.greet("jack","xhosa"), "Molo, jack");
+        GreetBase greetBase = new GreetBase();
+//        assertEquals(greetPerson.greet("jack","xhosa"), "Molo, jack");
+//        assertEquals(greetBase.greet("Phumlani","zulu"),"Saw'bona Phumlani");
+//        assertEquals(greetBase.greet("Phumlani","zulu"),"Saw'bona Phumlani");
         assertEquals(greetPerson.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetPerson.greet("chun li","chinese"), "Nǐ hǎo, chun li");
         assertEquals(greetPerson.greet("jack","xhosa"), "Molo, jack");
-        assertEquals(greetPerson.greet("joe","english"), "Hello, joe");
-        assertEquals(greetPerson.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
-        assertEquals(greetPerson.greet("Mabaso","english"), "Hello, Mabaso");
+//        assertEquals(greetPerson.greet("joe","english"), "Hello, joe");
+//        assertEquals(greetPerson.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
+//        assertEquals(greetPerson.greet("Mabaso","english"), "Hello, Mabaso");
 
-        assertEquals(7,greetPerson.totalNoOfDifferentNamesGreeted());
+        assertEquals(7,greetPerson.totalNoOfDifferentnamesGreeted());
+//        assertEquals(1,greetBase.totalNoOfDifferentnamesGreeted());
 
 
     }
 
     @Test
     public void languageTest() {
-        String userName = "Bheki", ullimi = "xhosa";
+        String username = "Bheki", ullimi = "xhosa";
 
       //  assertEquals(Languages.valueOf(ullimi).getGreeting(), "Saw'bona");
     }

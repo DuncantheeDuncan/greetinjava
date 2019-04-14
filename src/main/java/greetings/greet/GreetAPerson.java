@@ -12,36 +12,27 @@ public class GreetAPerson {
 
 //    GreetBase greetBase = new GreetBase();
 
-//    private int counter = 1;
+
 
     public String greet(String name, String language) {
         if(!namesMap.containsKey(name)){
-            System.out.println("EXECUTED1");
-            namesMap.put(name,0);// Zero makes my test 'totalNumberOfDifferentNamesGreeted' to pass
+//            System.out.println("EXECUTED1");
+            namesMap.put(name,0);// Zero makes my test 'totalNumberOfDifferentnamesGreeted' to pass
         }
 
 
-        int userNameCounter = namesMap.get(name);
-        userNameCounter++;
-        namesMap.put(name, userNameCounter);
-        ///////////////////////////////////////
-//        while (namesMap.size() > 1 ) {
-//
-////            System.out.println(counter+" THIS IS counter");
-//
-//            counter++;
-//            break;
-//        }
-//        //////////////////
+        int usernameCounter = namesMap.get(name);
+        usernameCounter++;
+        namesMap.put(name, usernameCounter);
 
-        System.out.println(Languages.valueOf(language).getGreeting() + ", " + name+ " "+ userNameCounter);
+        System.out.println(Languages.valueOf(language).getGreeting() + ", " + name+ " "+ usernameCounter);
 
         return Languages.valueOf(language).getGreeting() + ", " + name;
     }
 
 
 
-    public int totalNoOfDifferentNamesGreeted(){
+    public int totalNoOfDifferentnamesGreeted(){
         int tnumberGreeted = 0;
         for (Integer nameCount :namesMap.values()){
 
@@ -55,8 +46,8 @@ public class GreetAPerson {
 
     public int totalNumberGreeted(String namesGreeted){
         if (!namesMap.containsKey(namesGreeted)){
-            System.out.println("EXECUTED2");
-            return 0;
+//            System.out.println("EXECUTED2");
+//            return ;
         }
         System.out.println(namesGreeted+" names greeted ");
         return namesMap.get(namesGreeted);
@@ -64,11 +55,11 @@ public class GreetAPerson {
 
 
 
-    public void clear(){
-
-        namesMap.clear();
-
-    }
+//    public void clear(){
+//
+//        namesMap.clear();
+//
+//    }
 
 
 
@@ -79,7 +70,7 @@ public class GreetAPerson {
 
 
     public int getCountForAllUser() {
-        System.out.println("Total users "+namesMap.size());
+        System.out.println("Total users this one "+namesMap.size());
 
 
         return namesMap.size();
@@ -87,10 +78,15 @@ public class GreetAPerson {
 
 
 
+
+
+
+
     public static void main(String[] args){
-      //  Map< String, Integer> namesMap = new HashMap<>();
+//        Map< String, Integer> namesMap = new HashMap<>();
         GreetBase greetBase = new GreetBase();
-        //GreetAPerson greetPerson = new GreetAPerson();
+        GreetAPerson greetAPerson = new GreetAPerson();
+
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
@@ -103,8 +99,11 @@ public class GreetAPerson {
                 if (command.equals("exit")) {
                     greetBase.exit();
                 }
-                else if (command.equals("greeted")) {
-                    System.out.println(greetBase.greeted());
+                else if (command.equals("greeted")) {// works but add duplicate
+//
+                    System.out.println(greetBase.totalNoOfDifferentnamesGreeted());
+//
+
                 }else if(command.equals("help")){
 
                     System.out.println(greetBase.help());
@@ -113,13 +112,18 @@ public class GreetAPerson {
                     greetBase.clear();
                 }else if(command.equals("greet")){
 
-                    System.out.println("Expected greet + Name  and or language name.\n");
+                    System.out.println("Expected greet + name  and or language name.\n");
 
                 }else if(command.equals("counter")){
-                    System.out.println(greetBase.counter());// to Fix the counter
-                }
-                else {
-                    System.out.println("Invalid command Try 'Help' \n");
+//                    System.out.println(greetBase.counter());// to Fix the counter
+//                    System.out.println(greetAPerson.getCountForAllUser());
+//                    String count = commandArray[0].toLowerCase();
+//                    System.out.println(greetBase.counterWorking(count));
+                    System.out.println("counter not working yet ");
+
+
+                }else {
+                    System.out.println("Invalid command try 'Help' \n");
                 }
 
             }
@@ -128,8 +132,8 @@ public class GreetAPerson {
             if (commandArray.length == 2) {
                 String command = commandArray[0].toLowerCase();
                 if (command.equals("greeted")) {
-                    String name = commandArray[1].toLowerCase();
-                    System.out.println(greetBase.greeted());
+                    String name1 = commandArray[1];
+                    System.out.println(greetBase.greeted().size());
                 }
             }
 
@@ -137,7 +141,8 @@ public class GreetAPerson {
 
             else if (commandArray.length == 3) {
                 String command = commandArray[0].toLowerCase();
-                if (command.equals("greet")) {
+                if (command.equals("greet"))
+                {
                     String name = commandArray[1].toLowerCase();
                     String language = commandArray[2].toLowerCase();
                     System.out.println(greetBase.greet(name, language));
