@@ -23,17 +23,19 @@ public class GreetBase implements Commands {
     }
 
     public String greet(String name, String language) { //  works..
-        if(!namesMap.containsKey(name)){
-//            System.out.println("EXECUTED1");
-            namesMap.put(name,0);// Zero makes my test 'totalNumberOfDifferentnamesGreeted' to pass
+        if(!namesMap.containsKey(name)) {
+            namesMap.put(name, 0);// Zero makes my test 'totalNumberOfDifferentnamesGreeted' to pass
         }
         int usernameCounter = namesMap.get(name);
         usernameCounter++;
         namesMap.put(name, usernameCounter);
 
-        // System.out.println(Languages.valueOf(language).getGreeting() + ", " + name+ " "+ usernameCounter);// remove userconter
-
-        return Languages.valueOf(language).getGreeting() + ", " + name;
+        try {
+            return Languages.valueOf(language).getGreeting() + ", " + name;
+        }
+        catch (Exception e) {
+            return Languages.valueOf("english").getGreeting() +", " + name;
+        }
     }
 
     public void clear(){
@@ -54,31 +56,12 @@ public class GreetBase implements Commands {
         return greetCounter;
     }
 
-
-
-
-
-   /* public String greet(String name, String lang) {
-        if (namesMap.containsKey(name)) {
-            namesMap.put(name, namesMap.get(name) + 1);
-        }
-
-        namesMap.put(name, greetCounter);
-
-        return Languages.valueOf(lang).getGreeting() + " " + name;
-    }*/
-
-
-
-
     public Map<String, Integer> greeted() {
 
 
 
         return namesMap;
     }
-
-
 
     public void exit() {
 
@@ -94,7 +77,7 @@ public class GreetBase implements Commands {
                 "greeted\t---->\tname (returns number of times name have been greeted\n"+
                 "counter\t---->\treturns unique names been greeted\n"+
                 "clear\t---->\tset the map{} to 0\n"+
-                "clear\t---->\tname (decrease the counter by 1)\n+" +
+                "clear\t---->\tname (decrease the counter by 1)\n" +
                 "exit\t---->\texits the application\n\n";
 
         return n;
