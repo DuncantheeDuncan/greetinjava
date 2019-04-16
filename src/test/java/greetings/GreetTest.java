@@ -1,3 +1,4 @@
+package greetings;
 
 import greetings.Languages;
 
@@ -6,7 +7,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GreetTests {
+
+public class GreetTest {
     @Test
     public void testGreet(){
        GreetBase greetBase = new GreetBase();
