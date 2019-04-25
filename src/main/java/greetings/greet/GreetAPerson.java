@@ -1,12 +1,33 @@
 package greetings.greet;
 
 import greetings.GreetBase;
+
+
+import java.sql.*;
 import java.util.Scanner;
 
 public class GreetAPerson {
-    public static void main(String[] args){
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
         GreetBase greetBase = new GreetBase();
         Scanner scanner = new Scanner(System.in);
+//       <----------------  data base -   -   --  -       --  ->
+//        Class.forName("org.h2.Driver");
+//
+//        final String jdbcURL = "jdbc:h2:file:./target/your_database_name";
+//
+//        Connection conn = DriverManager.getConnection(jdbcURL, "sa", "");
+//
+//        PreparedStatement ps = conn.prepareStatement("select * from your_table where your_field = ?");
+//
+//        ps.setString(1, "query_value");
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        while(rs.next()) {
+//            System.out.println(rs.getString("column_name"));
+//        }
+////        <----------------  -   - end of data base  --  -       --  ->
+
         while (true){
             System.out.println("Waiting for your command... ");
             String commands = scanner.nextLine();
@@ -23,6 +44,7 @@ public class GreetAPerson {
                             System.out.println(greetBase.help());
                         }else if(command.equals("clear")){
                             greetBase.clear();
+
                         }else if(command.equals("greet")){
                             System.out.println("Expected greet + name  and or language name.\n");
                         }else if(command.equals("counter")){
@@ -47,16 +69,28 @@ public class GreetAPerson {
                             System.out.println(greetBase.greet(name, language));
                         }
                         else if (command.equals("greeted")){
-                            String name = commandArray[1].toLowerCase();
-                            int mapNumber  =  greetBase.greeted().get(name);
-                            System.out.println(name +" have been greeted: "+ mapNumber + " time(s)");
+                            try {
+                                String name = commandArray[1].toLowerCase();
+                                int mapNumber = greetBase.greeted().get(name);
+                                System.out.println(name + " have been greeted: " + mapNumber + " time(s)");
+                            }
+                            catch (NullPointerException e){
+                                String name = commandArray[1].toLowerCase();
+                                System.out.println("this person "+"("+name.toUpperCase() +")"+ " has not been greeted yet");
+                                //return  ;
+                            }
 
                         }else if(command.equals("clear")){
                             String name =commandArray[1].toLowerCase();
-                            int deletUserName = greetBase.greeted().remove(name);
-                            System.out.println("successfully removed "+ name.toUpperCase()+" from the list");
-
-                        }else {
+                            try {
+                                int deletUserName = greetBase.greeted().remove(name);
+                                System.out.println("successfully removed " + name.toUpperCase() + " from the list");
+                            }
+                            catch (NullPointerException e){
+//                                String s =commandArray[1].toLowerCase();
+                               System.out.println("try greeting "+name.toUpperCase() + " first" );
+                            }
+                        } else {
                             String name = commandArray[1].toLowerCase();
 
                             System.out.println("your command "+'"'+command.toUpperCase()+

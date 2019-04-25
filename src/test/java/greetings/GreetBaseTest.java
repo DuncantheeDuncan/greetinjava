@@ -21,7 +21,7 @@ class GreetBaseTest {
     }
 
     @Test
-    public void getCountForAllUser(){
+     void getCountForAllUser(){
         GreetBase greetBase = new GreetBase();
 
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -41,6 +41,15 @@ class GreetBaseTest {
 
         assertEquals(3,greetBase.totalNumberGreeted("jack"));
         assertEquals(1,greetBase.totalNumberGreeted("Xiou"));
+
+    }
+    @Test
+    void testinTheNullLanguage(){
+        GreetBase greetBase = new GreetBase();
+        assertEquals(greetBase.greet("jack","shangan"), "Saw'bona, jack");
+        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
+        assertEquals(greetBase.greet("jack","spanish"), "Saw'bona, jack");
+        assertEquals(greetBase.greet("jack","venda"), "Saw'bona, jack");
 
     }
 

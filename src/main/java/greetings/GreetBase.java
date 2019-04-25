@@ -20,14 +20,20 @@ public class GreetBase implements Commands {
     }
 
     public String greet(String name, String language) {
-        if(!namesMap.containsKey(name)) {
-            namesMap.put(name, 0);
-        }
+        try {
+            if (!namesMap.containsKey(name)) {
+                namesMap.put(name, 0);
+            }
 
-        int usernameCounter = namesMap.get(name);
-        usernameCounter++;
-        namesMap.put(name, usernameCounter);
-         return Languages.valueOf(language).getGreeting() + ", " + name;
+            int usernameCounter = namesMap.get(name);
+            usernameCounter++;
+            namesMap.put(name, usernameCounter);
+            return Languages.valueOf(language).getGreeting() + ", " + name;
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(language.toUpperCase() + " language is not available yet. " );
+            return Languages.valueOf("zulu").getGreeting() + ", " + name;
+        }
     }
 
     public void clear(){
@@ -43,7 +49,13 @@ public class GreetBase implements Commands {
     }
 
     public Map<String, Integer> greeted() {
+        try {
         return namesMap;
+        }
+        catch (NullPointerException e) {
+            System.out.println("noooooooop");
+            return namesMap;    /// hhhhhhhhhhhhh
+        }
     }
 
     public void exit() {
@@ -51,7 +63,7 @@ public class GreetBase implements Commands {
     }
 
   public String help() {
-      String n = "\t\tCOMMANDS THAT CAN BE USED\n\n" +
+      String n = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
               "greet\t---->\tname (default language)\n" +
               "greet\t---->\tname\t---->\tlanguage\n" +
               "greeted\t---->\treturns a map{}\n" +
