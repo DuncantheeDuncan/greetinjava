@@ -8,12 +8,10 @@ import java.util.Scanner;
 
 public class GreetAPerson {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        GreetBase greetBase = new GreetBase();
-        Scanner scanner = new Scanner(System.in);
-//       <----------------  data base -   -   --  -       --  ->
+        //       <----------------  database -   -   --  -       --  ->
 //        Class.forName("org.h2.Driver");
 //
-//        final String jdbcURL = "jdbc:h2:file:./target/your_database_name";
+        final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
 //
 //        Connection conn = DriverManager.getConnection(jdbcURL, "sa", "");
 //
@@ -26,8 +24,11 @@ public class GreetAPerson {
 //        while(rs.next()) {
 //            System.out.println(rs.getString("column_name"));
 //        }
-////        <----------------  -   - end of data base  --  -       --  ->
+////        <----------------  -   - end of database  --  -       --  ->
 
+
+        GreetBase greetBase = new GreetBase();
+        Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
             String commands = scanner.nextLine();

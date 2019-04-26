@@ -49,14 +49,10 @@ public class GreetBase implements Commands {
     }
 
     public Map<String, Integer> greeted() {
-        try {
+
         return namesMap;
         }
-        catch (NullPointerException e) {
-            System.out.println("noooooooop");
-            return namesMap;    /// hhhhhhhhhhhhh
-        }
-    }
+
 
     public void exit() {
         System.exit(0);

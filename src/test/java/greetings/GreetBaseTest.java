@@ -20,6 +20,7 @@ class GreetBaseTest {
         assertEquals(greetBase.greet("Muziwakhe","xhosa"),"Molo, Muziwakhe");
     }
 
+
     @Test
      void getCountForAllUser(){
         GreetBase greetBase = new GreetBase();
