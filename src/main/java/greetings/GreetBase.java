@@ -14,111 +14,69 @@ public class GreetBase implements Commands {
         int tnumberGreeted = 0;
         for (Integer nameCount :namesMap.values()){
             tnumberGreeted+=nameCount;
-
-
         }
         System.out.println( namesMap);
         return tnumberGreeted;
-
     }
 
-    public String greet(String name, String language) { //  works..
-        if(!namesMap.containsKey(name)){
-//            System.out.println("EXECUTED1");
-            namesMap.put(name,0);// Zero makes my test 'totalNumberOfDifferentnamesGreeted' to pass
+    public String greet(String name, String language) {
+        try {
+            if (!namesMap.containsKey(name)) {
+                namesMap.put(name, 0);
+            }
+
+            int usernameCounter = namesMap.get(name);
+            usernameCounter++;
+            namesMap.put(name, usernameCounter);
+            return Languages.valueOf(language).getGreeting() + ", " + name;
         }
-        int usernameCounter = namesMap.get(name);
-        usernameCounter++;
-        namesMap.put(name, usernameCounter);
-
-        // System.out.println(Languages.valueOf(language).getGreeting() + ", " + name+ " "+ usernameCounter);// remove userconter
-
-        return Languages.valueOf(language).getGreeting() + ", " + name;
+        catch (IllegalArgumentException e) {
+            System.out.println(language.toUpperCase() + " language is not available yet. " );
+            return Languages.valueOf("zulu").getGreeting() + ", " + name;
+        }
     }
 
     public void clear(){
         namesMap.clear();
-
     }
 
-/////////
-
-    public   void counterNUmber(int numOfUsers){
-    greetCounter+= numOfUsers;
-    numOfUsers++;
-
+    public int getCountForAllUser() {
+        return namesMap.size();
     }
 
     public int counter() {
-
         return greetCounter;
     }
 
-
-
-
-
-   /* public String greet(String name, String lang) {
-        if (namesMap.containsKey(name)) {
-            namesMap.put(name, namesMap.get(name) + 1);
-        }
-
-        namesMap.put(name, greetCounter);
-
-        return Languages.valueOf(lang).getGreeting() + " " + name;
-    }*/
-
-
-
-
     public Map<String, Integer> greeted() {
 
-
-
         return namesMap;
-    }
-
+        }
 
 
     public void exit() {
-
         System.exit(0);
-
     }
 
-  public String help(){
-        String n ="\t\tCOMMANDS THAT CAN BE USED\n\n"+
-                "greet\t---->\tname (default language)\n"+
-                "greet\t---->\tname\t---->\tlanguage\n"+
-                "greeted\t---->\treturns a map{}\n"+
-                "greeted\t---->\tname (returns number of times name have been greeted\n"+
-                "counter\t---->\treturns unique names been greeted\n"+
-                "clear\t---->\tset the map{} to 0\n"+
-                "clear\t---->\tname (decrease the counter by 1)\n+" +
-                "exit\t---->\texits the application\n\n";
+  public String help() {
+      String n = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
+              "greet\t---->\tname (default language)\n" +
+              "greet\t---->\tname\t---->\tlanguage\n" +
+              "greeted\t---->\treturns a map{}\n" +
+              "greeted\t---->\tname (returns number of times name have been greeted\n" +
+              "counter\t---->\treturns unique names been greeted\n" +
+              "clear\t---->\tset the map{} to 0\n" +
+              "clear\t---->\tname (decrease the counter by 1)\n" +
+              "exit\t---->\texits the application\n\n";
 
-        return n;
+      return n;
+  }
+    public int totalNumberGreeted(String namesGreeted){
+        if (!namesMap.containsKey(namesGreeted)){
+             namesMap.get(namesGreeted);
+        }
+       return namesMap.get(namesGreeted);
     }
-
-
-
-    //////////////////////////////////////
-
-    public int getCountForAllUser() {
-        System.out.println("users "+namesMap);
-
-
-        return namesMap.size();
-    }
-/////////////////////////////////////////////
-
-
-    public void greetwithtwo(){
-//        namesMap.
-    }
-
-
-
 }
 
 
