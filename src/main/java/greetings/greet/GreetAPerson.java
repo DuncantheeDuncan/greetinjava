@@ -11,7 +11,7 @@ public class GreetAPerson {
         //       <----------------  database -   -   --  -       --  ->
 //        Class.forName("org.h2.Driver");
 //
-        final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
+     //   final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
 //
 //        Connection conn = DriverManager.getConnection(jdbcURL, "sa", "");
 //
