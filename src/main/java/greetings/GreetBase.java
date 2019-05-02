@@ -27,6 +27,8 @@ public class GreetBase implements Commands {
         return db.findUsers().size();
     }
 
+
+
     public String greet(String name, String language) {
         try {
             if (!namesMap.containsKey(name)) {
@@ -57,9 +59,10 @@ public class GreetBase implements Commands {
     }
 
     public Map<String, Integer> greeted() {
-//        return db.findUsers();
+        return db.findUsers();
 
-        return namesMap;
+//        return namesMap;
+
         }
 
 
@@ -85,6 +88,9 @@ public class GreetBase implements Commands {
              namesMap.get(namesGreeted);
         }
        return namesMap.get(namesGreeted);
+    }
+    void me(){
+
     }
 }
 

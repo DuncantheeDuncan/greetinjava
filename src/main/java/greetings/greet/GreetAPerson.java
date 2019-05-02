@@ -28,6 +28,7 @@ public class GreetAPerson {
 
 
         GreetBase greetBase = new GreetBase();
+        JdbcGreet jdbcGreet = new JdbcGreet();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
@@ -68,6 +69,8 @@ public class GreetAPerson {
                             String name = commandArray[1].toLowerCase();
                             String language = "zulu";
                             System.out.println(greetBase.greet(name, language));
+//                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
+
                         }
                         else if (command.equals("greeted")){
                             try {
