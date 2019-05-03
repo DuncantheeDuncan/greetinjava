@@ -16,7 +16,7 @@ class jdbcGreetTest {
     }
 
     @Test
-    void testingConnection() throws SQLException {
+    void testingConnection() throws SQLException, ClassNotFoundException {
 
         JdbcGreet db = new JdbcGreet();
 
@@ -24,12 +24,13 @@ class jdbcGreetTest {
 
     }
     @Test
-    void testingTheCounter() throws SQLException{
+    void testingTheCounter() throws SQLException, ClassNotFoundException {
 
         JdbcGreet db = new JdbcGreet();
 
 
         assertEquals("{Axel=1}", db.findUsers().toString());
+
 //        assertEquals("{Phumlani=1}", db.findUsers().toString());
 //        assertEquals("{Axel=1}", db.findUsers().toString());
         System.out.println("the counter is " +db.counter());
@@ -38,22 +39,24 @@ class jdbcGreetTest {
     }
 
     @Test
-    void testNamesIndb() throws SQLException {
+    void testNamesIndb() throws SQLException, ClassNotFoundException {
         JdbcGreet jdbcGreet = new JdbcGreet();
+//        assertEquals("{Axel=1}",jdbcGreet.findUsers().toString());
         assertEquals("{Axel=1}",jdbcGreet.findUsers().toString());
-        assertEquals("{Axel=1}",jdbcGreet.findUsers().toString());
+//        assertEquals(jdbcGreet.greet("jo","xhosa"),"Molo, jo");
 
-        assertEquals("{Axel=1}",jdbcGreet.namesIndb());
+        assertEquals("{Axel=1}",jdbcGreet.namesInDB());
+//        assertEquals("{jo=1}",jdbcGreet.namesInDB());
 
 
 
     }
     @Test
-    void addingNmaesTodb() throws SQLException {
+    void addingNmaesTodb() throws SQLException, ClassNotFoundException {
         JdbcGreet jdbcGreet =  new JdbcGreet();
 //        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
 
-//        assertEquals("jack","xhosa"), "Molo, jack")
+        assertEquals(jdbcGreet.greet("Njabulo","xhosa"), "Molo, Njabulo");
         assertEquals(jdbcGreet.greet("jack","zulu"),"Saw'bona, jack");
 
 

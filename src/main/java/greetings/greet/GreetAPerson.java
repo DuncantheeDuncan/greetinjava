@@ -7,26 +7,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class GreetAPerson {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        //       <----------------  database -   -   --  -       --  ->
-//        Class.forName("org.h2.Driver");
-//
-     //   final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
-//
-//        Connection conn = DriverManager.getConnection(jdbcURL, "sa", "");
-//
-//        PreparedStatement ps = conn.prepareStatement("select * from your_table where your_field = ?");
-//
-//        ps.setString(1, "query_value");
-//
-//        ResultSet rs = ps.executeQuery();
-//
-//        while(rs.next()) {
-//            System.out.println(rs.getString("column_name"));
-//        }
-////        <----------------  -   - end of database  --  -       --  ->
-
-
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
         JdbcGreet jdbcGreet = new JdbcGreet();
         Scanner scanner = new Scanner(System.in);
@@ -68,8 +49,8 @@ public class GreetAPerson {
                         if (command.equals("greet")){
                             String name = commandArray[1].toLowerCase();
                             String language = "zulu";
-                            System.out.println(greetBase.greet(name, language));
-//                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
+//                            System.out.println(greetBase.greet(name, language));
+                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
 
                         }
                         else if (command.equals("greeted")){

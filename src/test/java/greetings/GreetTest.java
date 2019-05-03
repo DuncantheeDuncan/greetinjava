@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GreetTest  {
     @Test
-    public void testGreet() throws SQLException {
+    public void testGreet() throws SQLException, ClassNotFoundException {
        GreetBase greetBase = new GreetBase();
        assertEquals(greetBase.greet("Xui","chinese"),"Nǐ hǎo, Xui");
        assertEquals(greetBase.greet("Phumlani","zulu"),"Saw'bona, Phumlani");
@@ -21,7 +21,7 @@ public class GreetTest  {
     }
 
     @Test
-    public void getCountForAllUser() throws SQLException {
+    public void getCountForAllUser() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
 
 //        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -31,7 +31,7 @@ public class GreetTest  {
         // returns only number of unique users/names
     }
     @Test
-    public void testGreetednames() throws SQLException {
+    public void testGreetednames() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
 
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -45,7 +45,7 @@ public class GreetTest  {
     }
 
     @Test
-    public void testCounterNUmberFromBase() throws SQLException {
+    public void testCounterNUmberFromBase() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
 
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");

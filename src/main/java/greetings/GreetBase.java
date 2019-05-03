@@ -11,13 +11,15 @@ public class GreetBase implements Commands {
 
     private  int greetCounter = 1;
     JdbcGreet db = new JdbcGreet();
+    Map<String, Integer> databaseNames = new HashMap<>();
 
     Map< String, Integer> namesMap = new HashMap<>();
 
-    public GreetBase() throws SQLException {
+    public GreetBase() throws SQLException, ClassNotFoundException {
     }
 
     public int totalNoOfDifferentnamesGreeted(){
+//        Map<String, Integer> databaseNames = new HashMap<>();
         int tnumberGreeted = 0;
         for (Integer nameCount :namesMap.values()){
             tnumberGreeted+=nameCount;
@@ -30,6 +32,7 @@ public class GreetBase implements Commands {
 
 
     public String greet(String name, String language) {
+
         try {
             if (!namesMap.containsKey(name)) {
                 namesMap.put(name, 0);
@@ -38,7 +41,8 @@ public class GreetBase implements Commands {
             int usernameCounter = namesMap.get(name);
             usernameCounter++;
             namesMap.put(name, usernameCounter);
-            return Languages.valueOf(language).getGreeting() + ", " + name;
+//            return Languages.valueOf(language).getGreeting() + ", " + name;
+            return db.greet(name, language);//
         }
         catch (IllegalArgumentException e) {
             System.out.println(language.toUpperCase() + " language is not available yet. " );
@@ -47,7 +51,11 @@ public class GreetBase implements Commands {
     }
 
     public void clear(){
+//        Map<String, Integer> databaseNames = new HashMap<>();
+        databaseNames.clear();
+
         namesMap.clear();
+        System.out.println("hgfjdksla");
     }
 
     public int getCountForAllUser() {

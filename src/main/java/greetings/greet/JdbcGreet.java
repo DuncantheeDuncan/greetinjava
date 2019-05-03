@@ -11,29 +11,39 @@ import static java.lang.String.valueOf;
 
 public class JdbcGreet {
 
+
     final String FIND_ALL_USERS_SQL = "select * from PERSON ";
+    final String FIND_NAME_SQL = "select * from PERSON where name = ?";
     final String COUNT_ALL_GREETED_NAMES_SQL = "select count(*) from PERSON";
-    final String PUT_INTO_THE_DB_SQL = "select * from PERSON";
+    final String PUT_INTO_THE_DB_SQL = "insert into PERSON (name, counter) values (?, ?)";
+    final String UPDATE_NAME = "update PERSON set counter = counter + 1 where name = ?";
+
+
 
 
     final PreparedStatement findAllUsersPreparedStatement;
     final PreparedStatement countAllGreetedNamesPreparedStatement;
     final PreparedStatement addUserToDBPreparedStatement;
+    final PreparedStatement updateName;
+    final PreparedStatement findName;
 
 
     final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
     Connection conn;
 
 
-    public JdbcGreet() throws SQLException {
+    public JdbcGreet() throws SQLException, ClassNotFoundException {
 
 
-//            Class.forName("org.h2.Driver");
+            Class.forName("org.h2.Driver");
         conn = DriverManager.getConnection(jdbcURL, "sa", "");
+
 
         findAllUsersPreparedStatement = conn.prepareStatement(FIND_ALL_USERS_SQL);
         countAllGreetedNamesPreparedStatement = conn.prepareStatement(COUNT_ALL_GREETED_NAMES_SQL);
         addUserToDBPreparedStatement = conn.prepareStatement(PUT_INTO_THE_DB_SQL);
+        updateName = conn.prepareStatement(UPDATE_NAME);
+        findName = conn.prepareStatement(FIND_NAME_SQL);
 
     }
 
@@ -44,10 +54,9 @@ public class JdbcGreet {
 
 
         try {
-            findAllUsersPreparedStatement.execute();
-            countAllGreetedNamesPreparedStatement.execute();
+//            findAllUsersPreparedStatement.execute();
+//            countAllGreetedNamesPreparedStatement.execute();
             ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
-//           ResultSet resultSet = countAllGreetedNamesPreparedStatement.executeQuery();
 
             //if you are finding one user by name, use if not while
             while (rs.next()) {
@@ -60,7 +69,7 @@ public class JdbcGreet {
             }
 
             return databaseNames;
-//            return Languages.valueOf(language).getGreeting() + ", " + name;
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,14 +82,27 @@ public class JdbcGreet {
 //           public Map<String, String>greet(){
         System.out.println("greeting from db");
         try{
-            addUserToDBPreparedStatement.execute();
-            ResultSet rs =addUserToDBPreparedStatement.executeQuery();
+
+            ResultSet rs = findAllUsersPreparedStatement.executeQuery();
+
+            findName.setString(1, name);
+            ResultSet resultSet = findName.executeQuery();
+
+            if (resultSet.next()) {
+                updateName.setString(1, name);
+                updateName.execute();
+            }
+            else {
+                addUserToDBPreparedStatement.setString(1, name);
+                addUserToDBPreparedStatement.setInt(2, 1);
+                addUserToDBPreparedStatement.execute();
+            }
             while (rs.next()){
 
-                name = rs.getString("name");
-                language = rs.getString("language");
-                databaseNames.put(name,1 );
-                System.out.println("G "+databaseNames.put(name,counter));
+                String nameDB = rs.getString("name");
+                int counter = rs.getInt("counter");
+                databaseNames.put(nameDB, counter);
+                System.out.println(databaseNames);
 
 
             }
@@ -104,7 +126,7 @@ public class JdbcGreet {
 
         return databaseNames.size();
     }
-    public String namesIndb(){
+    public String namesInDB(){
 //        String names = s;
          String namesInTheDatabase = valueOf(databaseNames);
 //        String s = databaseNames.get(names).toString();

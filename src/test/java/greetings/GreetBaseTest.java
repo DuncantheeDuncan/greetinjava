@@ -14,7 +14,7 @@ class GreetBaseTest {
 //        assertEquals(1,1);
     }
     @Test
-    public void testGreet() throws SQLException {
+    public void testGreet() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
         assertEquals(greetBase.greet("Xui","chinese"),"Nǐ hǎo, Xui");
         assertEquals(greetBase.greet("Phumlani","zulu"),"Saw'bona, Phumlani");
@@ -24,7 +24,7 @@ class GreetBaseTest {
 
 
     @Test
-     void getCountForAllUser() throws SQLException {
+     void getCountForAllUser() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
 
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -34,7 +34,7 @@ class GreetBaseTest {
         // returns only number of unique users/names
     }
     @Test
-    public void testGreetednames() throws SQLException {
+    public void testGreetednames() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
 
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -47,7 +47,7 @@ class GreetBaseTest {
 
     }
     @Test
-    void testinTheNullLanguage() throws SQLException {
+    void testinTheNullLanguage() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
         assertEquals(greetBase.greet("jack","shangan"), "Saw'bona, jack");
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -57,7 +57,7 @@ class GreetBaseTest {
     }
 
     @Test
-    public void testCounterNUmberFromBase() throws SQLException {
+    public void testCounterNUmberFromBase() throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
 
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
