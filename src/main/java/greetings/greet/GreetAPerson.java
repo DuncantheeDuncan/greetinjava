@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class GreetAPerson {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
-        JdbcGreet jdbcGreet = new JdbcGreet();
+        JdbcGreet db = new JdbcGreet();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
@@ -22,7 +22,7 @@ public class GreetAPerson {
                             greetBase.exit();
                         }
                         else if (command.equals("greeted")) {
-                            System.out.println(greetBase.totalNoOfDifferentnamesGreeted());
+                            System.out.println(greetBase.greetedDB());
                         }else if(command.equals("help")){
                             System.out.println(greetBase.help());
                         }else if(command.equals("clear")){
@@ -31,8 +31,10 @@ public class GreetAPerson {
                         }else if(command.equals("greet")){
                             System.out.println("Expected greet + name  and or language name.\n");
                         }else if(command.equals("counter")){
-                            System.out.println(greetBase.greeted().size());
-                           // System.out.println(greetBase.getCountForAllUser());
+//                            System.out.println(greetBase.greeted().size());
+                            System.out.println(db.namesInDB());
+                            System.out.println("COUNTER CURRENTLY NOT WORKING FOR DATABASE!!!");
+//                            System.out.println(greetBase.getCountForAllUser());
                         }else {
                             System.out.println("your command "+'"'+command.toUpperCase()+'"'+
                                     " is not recognised try 'help'");
@@ -49,8 +51,8 @@ public class GreetAPerson {
                         if (command.equals("greet")){
                             String name = commandArray[1].toLowerCase();
                             String language = "zulu";
-//                            System.out.println(greetBase.greet(name, language));
-                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
+                            System.out.println(greetBase.greet(name, language));
+//                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
 
                         }
                         else if (command.equals("greeted")){

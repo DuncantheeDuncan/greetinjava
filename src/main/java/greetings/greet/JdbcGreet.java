@@ -47,28 +47,29 @@ public class JdbcGreet {
 
     }
 
+
     Map<String, Integer> databaseNames = new HashMap<>();
        public Map<String, Integer> findUsers() {
 
         System.out.println("Querying from DataBase..");
-
-
         try {
 //            findAllUsersPreparedStatement.execute();
 //            countAllGreetedNamesPreparedStatement.execute();
             ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
 
             //if you are finding one user by name, use if not while
+            System.out.println("\tGreeted names: ");
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
 //                String language =rs.getString("language");
 //             String   Languages.valueOf(language).getGreeting() = rs.getString("language");
                 databaseNames.put(name, counter);
-                System.out.println(databaseNames + name +" " + counter);
+
+                System.out.println("-------> " + name +" \t" + counter);
             }
 
-            return databaseNames;
+          //  return databaseNames;
 
 
         } catch (Exception e) {
@@ -77,6 +78,9 @@ public class JdbcGreet {
 
         return databaseNames;
     }
+
+
+
 
     public  String greet(String name, String language) {
 //           public Map<String, String>greet(){
@@ -108,7 +112,7 @@ public class JdbcGreet {
             }
            // return databaseNames+ Languages.valueOf(language).getGreeting();
 //            return String.valueOf(databaseNames);
-//            return Languages.valueOf(language).getGreeting() + ", " + name;
+            return Languages.valueOf(language).getGreeting() + ", " + name;
 
 
         }catch (Exception e){
@@ -120,11 +124,11 @@ public class JdbcGreet {
         return Languages.valueOf(language).getGreeting() + ", " + name;
     }
 
-    public int counter(){
+    public Map<String, Integer> counterDB(){
 
 
 
-        return databaseNames.size();
+        return databaseNames;
     }
     public String namesInDB(){
 //        String names = s;

@@ -25,7 +25,10 @@ public class GreetBase implements Commands {
             tnumberGreeted+=nameCount;
         }
         System.out.println( namesMap);
-//        return tnumberGreeted;
+        return tnumberGreeted;
+
+    }
+    public int greetedDB(){
         return db.findUsers().size();
     }
 
@@ -55,7 +58,7 @@ public class GreetBase implements Commands {
         databaseNames.clear();
 
         namesMap.clear();
-        System.out.println("hgfjdksla");
+        System.out.println("clear not working for database... ");
     }
 
     public int getCountForAllUser() {
@@ -67,7 +70,11 @@ public class GreetBase implements Commands {
     }
 
     public Map<String, Integer> greeted() {
-        return db.findUsers();
+        System.out.println("checking...");
+
+        return db.findUsers();///
+
+      // return databaseNames.size();
 
 //        return namesMap;
 
@@ -97,9 +104,7 @@ public class GreetBase implements Commands {
         }
        return namesMap.get(namesGreeted);
     }
-    void me(){
 
-    }
 }
 
 
