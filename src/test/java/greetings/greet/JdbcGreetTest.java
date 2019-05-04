@@ -33,8 +33,8 @@ class jdbcGreetTest {
 
 //        assertEquals("{Phumlani=1}", db.findUsers().toString());
 //        assertEquals("{Axel=1}", db.findUsers().toString());
-        System.out.println("the counter is " +db.counterDB());
-        assertEquals(1,db.counterDB());
+//        System.out.println("the counter is " +db.counterDB().size());
+        assertEquals(1,db.counterDB().size());
 
     }
 

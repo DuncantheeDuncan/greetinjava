@@ -11,7 +11,8 @@ public class GreetBase implements Commands {
 
     private  int greetCounter = 1;
     JdbcGreet db = new JdbcGreet();
-    Map<String, Integer> databaseNames = new HashMap<>();
+//    JdbcGreet db = new JdbcGreet();
+    Map<String, Integer> databaseMap = new HashMap<>();
 
     Map< String, Integer> namesMap = new HashMap<>();
 
@@ -19,7 +20,8 @@ public class GreetBase implements Commands {
     }
 
     public int totalNoOfDifferentnamesGreeted(){
-//        Map<String, Integer> databaseNames = new HashMap<>();
+//        totalNoOfDifferentnamesGreeted
+//        Map<String, Integer> databaseMap = new HashMap<>();
         int tnumberGreeted = 0;
         for (Integer nameCount :namesMap.values()){
             tnumberGreeted+=nameCount;
@@ -54,8 +56,8 @@ public class GreetBase implements Commands {
     }
 
     public void clear(){
-//        Map<String, Integer> databaseNames = new HashMap<>();
-        databaseNames.clear();
+//        Map<String, Integer> databaseMap = new HashMap<>();
+        databaseMap.clear();
 
         namesMap.clear();
         System.out.println("clear not working for database... ");
@@ -74,7 +76,7 @@ public class GreetBase implements Commands {
 
         return db.findUsers();///
 
-      // return databaseNames.size();
+      // return databaseMap.size();
 
 //        return namesMap;
 

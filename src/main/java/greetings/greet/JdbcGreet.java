@@ -1,5 +1,6 @@
 package greetings.greet;
 
+import greetings.Commands;
 import greetings.Languages;
 
 import java.sql.*;
@@ -9,7 +10,7 @@ import java.util.Map;
 import static java.lang.String.valueOf;
 
 
-public class JdbcGreet {
+public class JdbcGreet  {
 
 
     final String FIND_ALL_USERS_SQL = "select * from PERSON ";
@@ -48,7 +49,7 @@ public class JdbcGreet {
     }
 
 
-    Map<String, Integer> databaseNames = new HashMap<>();
+    Map<String, Integer> databaseMap = new HashMap<>();
        public Map<String, Integer> findUsers() {
 
         System.out.println("Querying from DataBase..");
@@ -64,19 +65,19 @@ public class JdbcGreet {
                 int counter = rs.getInt("counter");
 //                String language =rs.getString("language");
 //             String   Languages.valueOf(language).getGreeting() = rs.getString("language");
-                databaseNames.put(name, counter);
+                databaseMap.put(name, counter);
 
                 System.out.println("-------> " + name +" \t" + counter);
             }
 
-          //  return databaseNames;
+          //  return databaseMap;
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return databaseNames;
+        return databaseMap;
     }
 
 
@@ -105,13 +106,13 @@ public class JdbcGreet {
 
                 String nameDB = rs.getString("name");
                 int counter = rs.getInt("counter");
-                databaseNames.put(nameDB, counter);
-                System.out.println(databaseNames);
+                databaseMap.put(nameDB, counter);
+                System.out.println(databaseMap);
 
 
             }
-           // return databaseNames+ Languages.valueOf(language).getGreeting();
-//            return String.valueOf(databaseNames);
+           // return databaseMap+ Languages.valueOf(language).getGreeting();
+//            return String.valueOf(databaseMap);
             return Languages.valueOf(language).getGreeting() + ", " + name;
 
 
@@ -120,20 +121,20 @@ public class JdbcGreet {
 
         }
 
-//        return databaseNames+ Languages.valueOf(language).getGreeting();
+//        return databaseMap+ Languages.valueOf(language).getGreeting();
         return Languages.valueOf(language).getGreeting() + ", " + name;
     }
 
-    public Map<String, Integer> counterDB(){
+    public Map<String,Integer> counterDB(){
 
 
 
-        return databaseNames;
+        return databaseMap;
     }
     public String namesInDB(){
 //        String names = s;
-         String namesInTheDatabase = valueOf(databaseNames);
-//        String s = databaseNames.get(names).toString();
+         String namesInTheDatabase = valueOf(databaseMap);
+//        String s = databaseMap.get(names).toString();
 
         return namesInTheDatabase;
     }

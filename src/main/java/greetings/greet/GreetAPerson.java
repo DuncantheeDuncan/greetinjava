@@ -23,17 +23,23 @@ public class GreetAPerson {
                         }
                         else if (command.equals("greeted")) {
                             System.out.println(greetBase.greetedDB());
+//                            System.out.println(greetBase.totalNoOfDifferentnamesGreeted);
+
                         }else if(command.equals("help")){
                             System.out.println(greetBase.help());
                         }else if(command.equals("clear")){
                             greetBase.clear();
 
                         }else if(command.equals("greet")){
+
                             System.out.println("Expected greet + name  and or language name.\n");
                         }else if(command.equals("counter")){
 //                            System.out.println(greetBase.greeted().size());
-                            System.out.println(db.namesInDB());
-                            System.out.println("COUNTER CURRENTLY NOT WORKING FOR DATABASE!!!");
+//                            System.out.println(db.counterDB());
+                            String name = commandArray[1];
+                            String lang = "zulu";
+                            System.out.println(db.greet(name, lang));
+//                            System.out.println("COUNTER CURRENTLY NOT WORKING FOR DATABASE!!!");
 //                            System.out.println(greetBase.getCountForAllUser());
                         }else {
                             System.out.println("your command "+'"'+command.toUpperCase()+'"'+
