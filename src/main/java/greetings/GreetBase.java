@@ -1,14 +1,21 @@
 
 package greetings;
 
+import greetings.greet.JdbcGreet;
+
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GreetBase implements Commands {
 
     private  int greetCounter = 1;
+    JdbcGreet db = new JdbcGreet();
 
     Map< String, Integer> namesMap = new HashMap<>();
+
+    public GreetBase() throws SQLException {
+    }
 
     public int totalNoOfDifferentnamesGreeted(){
         int tnumberGreeted = 0;
@@ -16,7 +23,8 @@ public class GreetBase implements Commands {
             tnumberGreeted+=nameCount;
         }
         System.out.println( namesMap);
-        return tnumberGreeted;
+//        return tnumberGreeted;
+        return db.findUsers().size();
     }
 
     public String greet(String name, String language) {
@@ -49,6 +57,7 @@ public class GreetBase implements Commands {
     }
 
     public Map<String, Integer> greeted() {
+//        return db.findUsers();
 
         return namesMap;
         }
