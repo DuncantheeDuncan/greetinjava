@@ -1,6 +1,6 @@
 
 
-insert into PERSON (name, counter) values ('Axel', 1);
+insert into PERSON (name, counter) values ('axel', 1);
 --
 --
 --

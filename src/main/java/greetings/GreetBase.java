@@ -60,7 +60,7 @@ public class GreetBase implements Commands {
         databaseMap.clear();
 
         namesMap.clear();
-        System.out.println("clear not working for database... ");
+//        System.out.println("clear not working for database... ");
     }
 
     public int getCountForAllUser() {

@@ -1,7 +1,7 @@
 package greetings.greet;
 
-import greetings.Commands;
 import greetings.Languages;
+import org.h2.mvstore.Chunk;
 
 import java.sql.*;
 import java.util.HashMap;
@@ -13,24 +13,30 @@ import static java.lang.String.valueOf;
 public class JdbcGreet  {
 
 
-    final String FIND_ALL_USERS_SQL = "select * from PERSON ";
+    final String FIND_ALL_USERS_SQL = "select * from PERSON "; // greeted
     final String FIND_NAME_SQL = "select * from PERSON where name = ?";
-    final String COUNT_ALL_GREETED_NAMES_SQL = "select count(*) from PERSON";
+//    final String COUNT_ALL_GREETED_NAMES_SQL = "select count(*) from PERSON"; // counter
+//    final String COUNT_ALL_GREETED_NAMES_SQL = "SELECT COUNT(*) FROM PERSON  WHERE  counter >0";// counter
     final String PUT_INTO_THE_DB_SQL = "insert into PERSON (name, counter) values (?, ?)";
     final String UPDATE_NAME = "update PERSON set counter = counter + 1 where name = ?";
+    final String DELETE_A_NAME_SQL = "delete PERSON  where name = ?"; //delete
+    final String DELETE_ALL_FROM_DB_SQL = "delete PERSON";
 
 
 
 
     final PreparedStatement findAllUsersPreparedStatement;
-    final PreparedStatement countAllGreetedNamesPreparedStatement;
+//    final PreparedStatement countAllGreetedNamesPreparedStatement;
     final PreparedStatement addUserToDBPreparedStatement;
     final PreparedStatement updateName;
     final PreparedStatement findName;
+    final PreparedStatement deleteANames;
+    final PreparedStatement deleteAllNames;
 
 
     final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
     Connection conn;
+
 
 
     public JdbcGreet() throws SQLException, ClassNotFoundException {
@@ -41,16 +47,20 @@ public class JdbcGreet  {
 
 
         findAllUsersPreparedStatement = conn.prepareStatement(FIND_ALL_USERS_SQL);
-        countAllGreetedNamesPreparedStatement = conn.prepareStatement(COUNT_ALL_GREETED_NAMES_SQL);
+//        countAllGreetedNamesPreparedStatement = conn.prepareStatement(COUNT_ALL_GREETED_NAMES_SQL);
         addUserToDBPreparedStatement = conn.prepareStatement(PUT_INTO_THE_DB_SQL);
         updateName = conn.prepareStatement(UPDATE_NAME);
         findName = conn.prepareStatement(FIND_NAME_SQL);
+        deleteANames = conn.prepareStatement(DELETE_A_NAME_SQL);
+        deleteAllNames = conn.prepareStatement(DELETE_ALL_FROM_DB_SQL);
 
     }
 
 
-    Map<String, Integer> databaseMap = new HashMap<>();
+
+
        public Map<String, Integer> findUsers() {
+           Map<String, Integer> databaseMap = new HashMap<>();
 
         System.out.println("Querying from DataBase..");
         try {
@@ -63,8 +73,6 @@ public class JdbcGreet  {
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
-//                String language =rs.getString("language");
-//             String   Languages.valueOf(language).getGreeting() = rs.getString("language");
                 databaseMap.put(name, counter);
 
                 System.out.println("-------> " + name +" \t" + counter);
@@ -85,6 +93,7 @@ public class JdbcGreet  {
 
     public  String greet(String name, String language) {
 //           public Map<String, String>greet(){
+        Map<String, Integer> databaseMap = new HashMap<>();
         System.out.println("greeting from db");
         try{
 
@@ -125,20 +134,62 @@ public class JdbcGreet  {
         return Languages.valueOf(language).getGreeting() + ", " + name;
     }
 
-    public Map<String,Integer> counterDB(){
+
+    public Map<String,Integer> counterDB() throws SQLException {
+//        findName.execute();
+        findAllUsersPreparedStatement.execute();
 
 
+        Map<String, Integer> databaseMap = new HashMap<>();
+//        findName.execute();
+
+        System.out.println("--------- "+ databaseMap.size());
 
         return databaseMap;
     }
+
+
     public String namesInDB(){
 //        String names = s;
+        Map<String, Integer> databaseMap = new HashMap<>();
          String namesInTheDatabase = valueOf(databaseMap);
 //        String s = databaseMap.get(names).toString();
 
         return namesInTheDatabase;
     }
 
+public String clearNames(String name){
+
+
+    System.out.println("deleting..");
+
+    try {
+
+        deleteANames.setString(1, name);
+//        deleteANames.setInt(2,counter);
+
+        deleteANames.executeUpdate();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+        return   "Successfully removed " +name.toUpperCase()+ " from the list";
+       }
+
+    public void clearTheWHoleDB(){
+
+
+        System.out.println("deleting..");
+
+        try {
+
+            deleteAllNames.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
