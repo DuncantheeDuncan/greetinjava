@@ -7,27 +7,9 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class GreetAPerson {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        //       <----------------  database -   -   --  -       --  ->
-//        Class.forName("org.h2.Driver");
-//
-     //   final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
-//
-//        Connection conn = DriverManager.getConnection(jdbcURL, "sa", "");
-//
-//        PreparedStatement ps = conn.prepareStatement("select * from your_table where your_field = ?");
-//
-//        ps.setString(1, "query_value");
-//
-//        ResultSet rs = ps.executeQuery();
-//
-//        while(rs.next()) {
-//            System.out.println(rs.getString("column_name"));
-//        }
-////        <----------------  -   - end of database  --  -       --  ->
-
-
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         GreetBase greetBase = new GreetBase();
+        JdbcGreet db = new JdbcGreet();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
@@ -40,17 +22,25 @@ public class GreetAPerson {
                             greetBase.exit();
                         }
                         else if (command.equals("greeted")) {
-                            System.out.println(greetBase.totalNoOfDifferentnamesGreeted());
+                            System.out.println(greetBase.greetedDB());
+//                            System.out.println(greetBase.totalNoOfDifferentnamesGreeted);
+
                         }else if(command.equals("help")){
                             System.out.println(greetBase.help());
                         }else if(command.equals("clear")){
                             greetBase.clear();
 
                         }else if(command.equals("greet")){
+
                             System.out.println("Expected greet + name  and or language name.\n");
                         }else if(command.equals("counter")){
-                            System.out.println(greetBase.greeted().size());
-                           // System.out.println(greetBase.getCountForAllUser());
+//                            System.out.println(greetBase.greeted().size());
+//                            System.out.println(db.counterDB());
+                            String name = commandArray[1];
+                            String lang = "zulu";
+                            System.out.println(db.greet(name, lang));
+//                            System.out.println("COUNTER CURRENTLY NOT WORKING FOR DATABASE!!!");
+//                            System.out.println(greetBase.getCountForAllUser());
                         }else {
                             System.out.println("your command "+'"'+command.toUpperCase()+'"'+
                                     " is not recognised try 'help'");
@@ -68,6 +58,8 @@ public class GreetAPerson {
                             String name = commandArray[1].toLowerCase();
                             String language = "zulu";
                             System.out.println(greetBase.greet(name, language));
+//                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
+
                         }
                         else if (command.equals("greeted")){
                             try {
