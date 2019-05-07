@@ -11,7 +11,9 @@ public interface Commands {
 //    void clear();
 //    String help(); // returns help
 //    void exit(); // exit the  application
-    int totalNoOfDifferentnamesGreeted();
+//    int totalNoOfDifferentnamesGreeted();
+
+    String greetName(String name, String lang);
 
 
 

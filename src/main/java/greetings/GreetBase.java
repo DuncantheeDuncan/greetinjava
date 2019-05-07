@@ -11,10 +11,11 @@ public class GreetBase implements Commands {
 
     private  int greetCounter = 1;
     JdbcGreet db = new JdbcGreet();
-//    JdbcGreet db = new JdbcGreet();
-    Map<String, Integer> databaseMap = new HashMap<>();
 
+//    -----------------------------------------------------
+    Map<String, Integer> databaseMap = new HashMap<>();
     Map< String, Integer> namesMap = new HashMap<>();
+//   -----------------------------------------------------
 
     public GreetBase() throws SQLException, ClassNotFoundException {
     }
@@ -30,8 +31,14 @@ public class GreetBase implements Commands {
         return tnumberGreeted;
 
     }
-    public int greetedDB(){
+
+
+    public int DBCounter(){
         return db.findUsers().size();
+//        return databaseMap.size();
+    }
+    public void greetedDB(){
+        System.out.println(db.findUsers());
     }
 
 
@@ -46,8 +53,8 @@ public class GreetBase implements Commands {
             int usernameCounter = namesMap.get(name);
             usernameCounter++;
             namesMap.put(name, usernameCounter);
-//            return Languages.valueOf(language).getGreeting() + ", " + name;
-            return db.greet(name, language);//
+            return Languages.valueOf(language).getGreeting() + ", " + name;
+//            return db.greet(name, language);// -----Database----
         }
         catch (IllegalArgumentException e) {
             System.out.println(language.toUpperCase() + " language is not available yet. " );
@@ -57,10 +64,10 @@ public class GreetBase implements Commands {
 
     public void clear(){
 //        Map<String, Integer> databaseMap = new HashMap<>();
-        databaseMap.clear();
+
 
         namesMap.clear();
-//        System.out.println("clear not working for database... ");
+
     }
 
     public int getCountForAllUser() {
@@ -74,11 +81,7 @@ public class GreetBase implements Commands {
     public Map<String, Integer> greeted() {
         System.out.println("checking...");
 
-        return db.findUsers();///
-
-      // return databaseMap.size();
-
-//        return namesMap;
+        return namesMap;
 
         }
 
@@ -107,6 +110,12 @@ public class GreetBase implements Commands {
        return namesMap.get(namesGreeted);
     }
 
+
+    public String greetName(String name, String lang) {
+
+
+        return null;
+    }
 }
 
 

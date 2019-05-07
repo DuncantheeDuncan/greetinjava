@@ -1,5 +1,6 @@
 package greetings.greet;
 
+import greetings.Commands;
 import greetings.Languages;
 import org.h2.mvstore.Chunk;
 
@@ -10,7 +11,7 @@ import java.util.Map;
 import static java.lang.String.valueOf;
 
 
-public class JdbcGreet  {
+public class JdbcGreet implements Commands {
 
 
     final String FIND_ALL_USERS_SQL = "select * from PERSON "; // greeted
@@ -75,7 +76,7 @@ public class JdbcGreet  {
                 int counter = rs.getInt("counter");
                 databaseMap.put(name, counter);
 
-                System.out.println("-------> " + name +" \t" + counter);
+                System.out.println("-------> " + name);
             }
 
           //  return databaseMap;
@@ -136,17 +137,34 @@ public class JdbcGreet  {
 
 
     public Map<String,Integer> counterDB() throws SQLException {
+
 //        findName.execute();
-        findAllUsersPreparedStatement.execute();
-
-
         Map<String, Integer> databaseMap = new HashMap<>();
+        try {
+            findAllUsersPreparedStatement.execute();
+            ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                int counter = rs.getInt("counter");
+                databaseMap.put(name, counter);
+
+//                System.out.println("-------> " + name +" \t" + counter);
+            }
+
 //        findName.execute();
 
-        System.out.println("--------- "+ databaseMap.size());
+//            System.out.println("--------- "+ databaseMap.size());
 
-        return databaseMap;
+            return  databaseMap;
+
+        }catch (Exception e){
+
+        }
+
+     return databaseMap;
     }
+
 
 
     public String namesInDB(){
@@ -157,6 +175,7 @@ public class JdbcGreet  {
 
         return namesInTheDatabase;
     }
+
 
 public String clearNames(String name){
 
@@ -174,8 +193,11 @@ public String clearNames(String name){
         e.printStackTrace();
     }
 
-        return   "Successfully removed " +name.toUpperCase()+ " from the list";
+        return "Successfully removed " +name.toUpperCase()+ " from the list";
        }
+
+
+
 
     public void clearTheWHoleDB(){
 
@@ -191,6 +213,16 @@ public String clearNames(String name){
         }
     }
 
+    public Map<String, Integer> greeted() {// working for DATABASE
+        System.out.println("checking...");
+       // return namesMap;
+//        return db.findUsers();///
+        return null;
+    }
+
+    public String greetName(String name, String lang) {
 
 
+        return null;
+    }
 }
