@@ -16,31 +16,33 @@ public class GreetAPerson {
             String commands = scanner.nextLine();
             String[] commandArray = commands.split(" ");
                 try {
+
                     if (commandArray.length == 1){
                         String command = commandArray[0].toLowerCase();
-                        if (command.equals("exit")) {
+                        if (command.equals("exit")) {//DONE
                             greetBase.exit();
                         }
+
+
                         else if (command.equals("greeted")) {
-                            System.out.println(greetBase.greetedDB());
-//                            System.out.println(greetBase.totalNoOfDifferentnamesGreeted);
+                            db.findUsers(); // dataBase
+                            greetBase.totalNoOfDifferentnamesGreeted(); // In-Memory
 
                         }else if(command.equals("help")){
                             System.out.println(greetBase.help());
-                        }else if(command.equals("clear")){
-                            greetBase.clear();
 
-                        }else if(command.equals("greet")){
+                        }else if(command.equals("clear")){ //DONE
 
+                            db.clear(); // works as intended
+                            greetBase.clear(); //In-Memory
+
+                        }else if(command.equals("greet")){//DONE
                             System.out.println("Expected greet + name  and or language name.\n");
-                        }else if(command.equals("counter")){
-//                            System.out.println(greetBase.greeted().size());
-//                            System.out.println(db.counterDB());
-                            String name = commandArray[1];
-                            String lang = "zulu";
-                            System.out.println(db.greet(name, lang));
-//                            System.out.println("COUNTER CURRENTLY NOT WORKING FOR DATABASE!!!");
-//                            System.out.println(greetBase.getCountForAllUser());
+
+                        }else if(command.equals("counter")){//DONE
+
+                            System.out.println("The total counter is ("+db.counter().size()+")"); // works as intended
+                            System.out.println("The total counter is ("+greetBase.counter().size()+")");// In-Memory
                         }else {
                             System.out.println("your command "+'"'+command.toUpperCase()+'"'+
                                     " is not recognised try 'help'");
@@ -54,18 +56,20 @@ public class GreetAPerson {
                 try {
                     if (commandArray.length == 2) {
                         String command = commandArray[0].toLowerCase();
-                        if (command.equals("greet")){
+                        if (command.equals("greet")){//DONE
                             String name = commandArray[1].toLowerCase();
                             String language = "zulu";
                             System.out.println(greetBase.greet(name, language));
-//                            System.out.println("from the database "+ jdbcGreet.greet(name, language));
+                            System.out.println("from the database "+ db.greet(name, language));
 
                         }
                         else if (command.equals("greeted")){
                             try {
                                 String name = commandArray[1].toLowerCase();
-                                int mapNumber = greetBase.greeted().get(name);
-                                System.out.println(name + " have been greeted: " + mapNumber + " time(s)");
+//                                int mapNumber = greetBase.greeted___(name);
+                                greetBase.greeted___();
+// __ is for counter ____ 3 under score is for greeted
+                                System.out.println(name + " have been greeted: " + greetBase.greeted___().size()+ " time(s)");
                             }
                             catch (NullPointerException e){
                                 String name = commandArray[1].toLowerCase();
@@ -73,16 +77,19 @@ public class GreetAPerson {
                                 //return  ;
                             }
 
+
                         }else if(command.equals("clear")){
                             String name =commandArray[1].toLowerCase();
                             try {
-                                int deletUserName = greetBase.greeted().remove(name);
-                                System.out.println("successfully removed " + name.toUpperCase() + " from the list");
+//                                System.out.println(db.clearNames(name)); // works as intended database
+//                                int deletUserName = greetBase.greeted__().remove(name);
+//                                System.out.println("successfully removed " + name.toUpperCase() + " from the list 1");
                             }
                             catch (NullPointerException e){
-//                                String s =commandArray[1].toLowerCase();
                                System.out.println("try greeting "+name.toUpperCase() + " first" );
                             }
+
+
                         } else {
                             String name = commandArray[1].toLowerCase();
 
@@ -96,7 +103,7 @@ public class GreetAPerson {
                     System.out.println(e);
                     e.printStackTrace();
                 }
-
+//      LAST STOP!!!
                 try {
                     if (commandArray.length == 3) {
                         String command = commandArray[0].toLowerCase();
