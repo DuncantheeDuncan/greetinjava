@@ -53,7 +53,7 @@ public class GreetTest  {
         assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
         assertEquals(greetBase.greet("Mabaso","english"), "Hello, Mabaso");
 
-        assertEquals(4,greetBase.totalNoOfDifferentnamesGreeted());
+        assertEquals(4,greetBase.greeted());
         // this takes in duplicates
         }
 

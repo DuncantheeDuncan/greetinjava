@@ -4,6 +4,7 @@ package greetings.greet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +13,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class jdbcGreetTest {
-
+Connection conn;
     @BeforeEach
-    void setUp() {
+    void setUp()  throws SQLException, ClassNotFoundException{
+        JdbcGreet jdbcGreet = new JdbcGreet();
+//        conn.DriverMananger
     }
 
     @Test
@@ -22,7 +25,7 @@ class jdbcGreetTest {
 
         JdbcGreet db = new JdbcGreet();
 
-        assertEquals("{phumlani=1}", db.findUsers().toString());
+        assertEquals("{phumlani=1}", db.greeted().toString());
 
     }
     @Test
@@ -31,12 +34,12 @@ class jdbcGreetTest {
         JdbcGreet db = new JdbcGreet();
 
 
-        assertEquals("{phumlani=1}", db.findUsers().toString());
+        assertEquals("{phumlani=1}", db.greeted().toString());
 
 //        assertEquals("{Phumlani=1}", db.findUsers().toString());
 //        assertEquals("{phumlani=1}", db.findUsers().toString());
 //        System.out.println("the counter is " +db.counterDB().size());
-        assertEquals(1,db.counter().size());
+        assertEquals(1,db.counter());
 
     }
 
@@ -44,7 +47,7 @@ class jdbcGreetTest {
     void testNamesIndb() throws SQLException, ClassNotFoundException {
         JdbcGreet jdbcGreet = new JdbcGreet();
 //        assertEquals("{phumlani=1}",jdbcGreet.findUsers().toString());
-        assertEquals("{phumlani=1}",jdbcGreet.findUsers().toString());
+        assertEquals("{phumlani=1}",jdbcGreet.greeted().toString());
 //        assertEquals(jdbcGreet.greet("jo","xhosa"),"Molo, jo");
 
         assertEquals("{phumlani=1}",jdbcGreet.namesInDB());
@@ -68,9 +71,9 @@ class jdbcGreetTest {
     void DeleteName() throws SQLException, ClassNotFoundException {
         JdbcGreet jdbcGreet = new JdbcGreet();
 //
-        assertEquals("{phumlani=1}",jdbcGreet.findUsers().toString());
+        assertEquals("{phumlani=1}",jdbcGreet.greeted().toString());
 
-        assertEquals("phumlani deleted",jdbcGreet.clearNames("phumlani").toString());
+        assertEquals("phumlani deleted",jdbcGreet.clearWithAName("phumlani").toString());
     }
 
     @Test

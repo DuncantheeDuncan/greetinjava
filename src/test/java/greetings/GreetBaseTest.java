@@ -65,7 +65,7 @@ class GreetBaseTest {
         assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
 //        assertEquals(greetBase.greet("Mabaso","english"), "Hello, Mabaso");
 
-        assertEquals(1,greetBase.totalNoOfDifferentnamesGreeted());
+        assertEquals(1,greetBase.greeted());
 //        assertEquals(4,greetBase.totalNoOfDifferentnamesGreeted());
         // this takes in duplicates
     }

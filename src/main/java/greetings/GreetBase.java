@@ -21,25 +21,16 @@ public class GreetBase implements Commands {
     }
 
 
-    public Map<String, Integer> totalNoOfDifferentnamesGreeted(){
-
-        Map<String, Integer> databaseMap = new HashMap<>();
-        int tnumberGreeted = 0;
-        for (Integer nameCount :namesMap.values()){
-            tnumberGreeted+=nameCount;
-        }
-        System.out.println( namesMap);
-//        return tnumberGreeted;
-return namesMap;
-    }
 
 
-    public int DBCounter(){
-        return db.findUsers().size();
+
+
+    public String DBCounter(){
+        return db.greeted();
 //        return databaseMap.size();
     }
     public void greetedDB(){
-        System.out.println(db.findUsers());
+        System.out.println(db.greeted());
     }
 
 
@@ -52,18 +43,14 @@ return namesMap;
 //        return greetCounter;
 //    }
 
-    public Map<String, Integer> greeted__() {
+
+
+
+    public String greeted___() {// greeted //  fix conditional statent if name exists
 //    public String greeted__(String name){
         System.out.println("checking...");
 
-        return namesMap;
-
-        }
-    public Map<String, Integer> greeted___() {// greeted
-//    public String greeted__(String name){
-        System.out.println("checking...");
-
-        return namesMap;
+        return String.valueOf(namesMap);
 
     }
     public int totalNumberGreeted(String namesGreeted){
@@ -103,8 +90,8 @@ return namesMap;
     public void clear(){
         namesMap.clear();
     }
-    public Map<String,Integer> counter(){ //counter // getCountForAllUser
-        return namesMap;
+    public String counter(){ //counter // getCountForAllUser
+        return "The total counter is ("+namesMap.size()+")";
     }
     public String greet(String name, String language) {// greet // greet
 
@@ -124,6 +111,37 @@ return namesMap;
             return Languages.valueOf("zulu").getGreeting() + ", " + name;
         }
     }
+
+    public String clearWithAName(String name) { //clear // greeted__
+
+        System.out.println("checking...");
+        if (namesMap.containsKey(name)) {
+            namesMap.remove(name);
+            System.out.println("successfully removed " + name.toUpperCase() + " from the list");
+        } else {
+
+            System.out.println("try greeting "+name.toUpperCase() + " first" );
+        }
+
+//        String map = String.valueOf(namesMap.remove(name));
+       return String.valueOf(namesMap.remove(name + "dddd" ));
+
+//        return map+ "num";
+
+    }
+    public String greeted(){
+
+        Map<String, Integer> databaseMap = new HashMap<>();
+        int tnumberGreeted = 0;
+        for (Integer nameCount :namesMap.values()){
+            tnumberGreeted+=nameCount;
+        }
+        System.out.println( namesMap);
+
+        return String.valueOf(namesMap);
+    }
+
+
 
 
 }

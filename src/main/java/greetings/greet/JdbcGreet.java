@@ -89,7 +89,7 @@ public class JdbcGreet implements Commands {
         }
     }
 
-    public Map<String,Integer> counter()  { //counter // counterDB
+    public String counter()  { //counter // counterDB
 //        public int counterDB() throws SQLException {
 
 //        findName.execute();
@@ -110,13 +110,13 @@ public class JdbcGreet implements Commands {
 
 //            System.out.println("--------- "+ databaseMap.size());
 
-            return  databaseMap;
+            return "The total counter is (" + databaseMap.size()+")";
 
         }catch (Exception e){
 
         }
 
-        return databaseMap;
+        return databaseMap.size() + " names";//--------
     }
     public  String greet(String name, String language) {// greet // greet
         Map<String, Integer> databaseMap = new HashMap<>();
@@ -159,16 +159,25 @@ public class JdbcGreet implements Commands {
 //        return databaseMap+ Languages.valueOf(language).getGreeting();
         return Languages.valueOf(language).getGreeting() + ", " + name;
     }
+    public String clearWithAName(String name){ // clear // clearNames
+        Map<String, Integer> databaseMap = new HashMap<>();
+
+        try {
+
+                deleteANames.setString(1, name);
+                deleteANames.executeUpdate();
 
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        String text = "Successfully removed " +name.toUpperCase()+ " from the list";
+        return text;
 
-
-
-
-
-    public Map<String, Integer> findUsers() {
-           Map<String, Integer> databaseMap = new HashMap<>();
+    }
+    public String greeted() {// findUsers
+        Map<String, Integer> databaseMap = new HashMap<>();
 
         System.out.println("Querying from DataBase..");
         try {
@@ -186,15 +195,27 @@ public class JdbcGreet implements Commands {
                 System.out.println("-------> " + name);
             }
 
-          //  return databaseMap;
+            //  return databaseMap;
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return databaseMap;
+        return String.valueOf(databaseMap);
     }
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------
+//    not yet fixed.
+//-----------------------------------------------------------------------
+
+
 
 
 
@@ -214,25 +235,6 @@ public class JdbcGreet implements Commands {
     }
 
 
-public String clearNames(String name){
-
-
-
-//    System.out.println("deleting..");
-
-    try {
-
-        deleteANames.setString(1, name);
-//        deleteANames.setInt(2,counter);
-
-        deleteANames.executeUpdate();
-
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-
-        return "Successfully removed " +name.toUpperCase()+ " from the list";
-       }
 
 
 
@@ -245,9 +247,5 @@ public String clearNames(String name){
         return null;
     }
 
-    public String greetName(String name, String lang) {
 
-
-        return null;
-    }
 }
