@@ -58,9 +58,116 @@ public class JdbcGreet implements Commands {
     }
 
 
+    public void exit(){ //exits
+        System.exit(0);
+
+    }
+    public String help() {//help
+        String n = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
+                "greet\t---->\tname (default language)\n" +
+                "greet\t---->\tname\t---->\tlanguage\n" +
+                "greeted\t---->\treturns a map{}\n" +
+                "greeted\t---->\tname (returns number of times name have been greeted\n" +
+                "counter\t---->\treturns unique names been greeted\n" +
+                "clear\t---->\tset the map{} to 0\n" +
+                "clear\t---->\tname (decrease the counter by 1)\n" +
+                "exit\t---->\texits the application\n\n";
+
+        return n;
+    }
+    public void clear(){ //clear
 
 
-       public Map<String, Integer> findUsers() {
+        System.out.println("deleting..");
+
+        try {
+
+            deleteAllNames.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Map<String,Integer> counter()  { //counter // counterDB
+//        public int counterDB() throws SQLException {
+
+//        findName.execute();
+        Map<String, Integer> databaseMap = new HashMap<>();
+        try {
+            findAllUsersPreparedStatement.execute();
+            ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                int counter = rs.getInt("counter");
+                databaseMap.put(name, counter);
+
+//                System.out.println("-------> " + name +" \t" + counter);
+            }
+
+//        findName.execute();
+
+//            System.out.println("--------- "+ databaseMap.size());
+
+            return  databaseMap;
+
+        }catch (Exception e){
+
+        }
+
+        return databaseMap;
+    }
+    public  String greet(String name, String language) {// greet // greet
+        Map<String, Integer> databaseMap = new HashMap<>();
+        System.out.println("greeting from db");
+        try{
+
+            ResultSet rs = findAllUsersPreparedStatement.executeQuery();
+
+            findName.setString(1, name);
+            ResultSet resultSet = findName.executeQuery();
+
+            if (resultSet.next()) {
+                updateName.setString(1, name);
+                updateName.execute();
+            }
+            else {
+                addUserToDBPreparedStatement.setString(1, name);
+                addUserToDBPreparedStatement.setInt(2, 1);
+                addUserToDBPreparedStatement.execute();
+            }
+            while (rs.next()){
+
+                String nameDB = rs.getString("name");
+                int counter = rs.getInt("counter");
+                databaseMap.put(nameDB, counter);
+                System.out.println(databaseMap);
+
+
+            }
+            // return databaseMap+ Languages.valueOf(language).getGreeting();
+//            return String.valueOf(databaseMap);
+            return Languages.valueOf(language).getGreeting() + ", " + name;
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+
+//        return databaseMap+ Languages.valueOf(language).getGreeting();
+        return Languages.valueOf(language).getGreeting() + ", " + name;
+    }
+
+
+
+
+
+
+
+
+    public Map<String, Integer> findUsers() {
            Map<String, Integer> databaseMap = new HashMap<>();
 
         System.out.println("Querying from DataBase..");
@@ -92,78 +199,8 @@ public class JdbcGreet implements Commands {
 
 
 
-    public  String greet(String name, String language) {
-//           public Map<String, String>greet(){
-        Map<String, Integer> databaseMap = new HashMap<>();
-        System.out.println("greeting from db");
-        try{
-
-            ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-
-            findName.setString(1, name);
-            ResultSet resultSet = findName.executeQuery();
-
-            if (resultSet.next()) {
-                updateName.setString(1, name);
-                updateName.execute();
-            }
-            else {
-                addUserToDBPreparedStatement.setString(1, name);
-                addUserToDBPreparedStatement.setInt(2, 1);
-                addUserToDBPreparedStatement.execute();
-            }
-            while (rs.next()){
-
-                String nameDB = rs.getString("name");
-                int counter = rs.getInt("counter");
-                databaseMap.put(nameDB, counter);
-                System.out.println(databaseMap);
 
 
-            }
-           // return databaseMap+ Languages.valueOf(language).getGreeting();
-//            return String.valueOf(databaseMap);
-            return Languages.valueOf(language).getGreeting() + ", " + name;
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-
-        }
-
-//        return databaseMap+ Languages.valueOf(language).getGreeting();
-        return Languages.valueOf(language).getGreeting() + ", " + name;
-    }
-
-
-    public Map<String,Integer> counterDB() throws SQLException {
-
-//        findName.execute();
-        Map<String, Integer> databaseMap = new HashMap<>();
-        try {
-            findAllUsersPreparedStatement.execute();
-            ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
-
-            while (rs.next()) {
-                String name = rs.getString("name");
-                int counter = rs.getInt("counter");
-                databaseMap.put(name, counter);
-
-//                System.out.println("-------> " + name +" \t" + counter);
-            }
-
-//        findName.execute();
-
-//            System.out.println("--------- "+ databaseMap.size());
-
-            return  databaseMap;
-
-        }catch (Exception e){
-
-        }
-
-     return databaseMap;
-    }
 
 
 
@@ -180,7 +217,8 @@ public class JdbcGreet implements Commands {
 public String clearNames(String name){
 
 
-    System.out.println("deleting..");
+
+//    System.out.println("deleting..");
 
     try {
 
@@ -199,21 +237,8 @@ public String clearNames(String name){
 
 
 
-    public void clearTheWHoleDB(){
 
-
-        System.out.println("deleting..");
-
-        try {
-
-            deleteAllNames.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Map<String, Integer> greeted() {// working for DATABASE
+    public Map<String, Integer> greeted_DD() {// working for DATABASE
         System.out.println("checking...");
        // return namesMap;
 //        return db.findUsers();///

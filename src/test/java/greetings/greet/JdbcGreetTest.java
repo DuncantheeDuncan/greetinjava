@@ -36,7 +36,7 @@ class jdbcGreetTest {
 //        assertEquals("{Phumlani=1}", db.findUsers().toString());
 //        assertEquals("{phumlani=1}", db.findUsers().toString());
 //        System.out.println("the counter is " +db.counterDB().size());
-        assertEquals(1,db.counterDB().size());
+        assertEquals(1,db.counter().size());
 
     }
 

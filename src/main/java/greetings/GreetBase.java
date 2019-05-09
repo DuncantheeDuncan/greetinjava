@@ -20,16 +20,17 @@ public class GreetBase implements Commands {
     public GreetBase() throws SQLException, ClassNotFoundException {
     }
 
-    public int totalNoOfDifferentnamesGreeted(){
-//        totalNoOfDifferentnamesGreeted
-//        Map<String, Integer> databaseMap = new HashMap<>();
+
+    public Map<String, Integer> totalNoOfDifferentnamesGreeted(){
+
+        Map<String, Integer> databaseMap = new HashMap<>();
         int tnumberGreeted = 0;
         for (Integer nameCount :namesMap.values()){
             tnumberGreeted+=nameCount;
         }
         System.out.println( namesMap);
-        return tnumberGreeted;
-
+//        return tnumberGreeted;
+return namesMap;
     }
 
 
@@ -43,7 +44,69 @@ public class GreetBase implements Commands {
 
 
 
-    public String greet(String name, String language) {
+
+
+
+
+//    public int counter() {
+//        return greetCounter;
+//    }
+
+    public Map<String, Integer> greeted__() {
+//    public String greeted__(String name){
+        System.out.println("checking...");
+
+        return namesMap;
+
+        }
+    public Map<String, Integer> greeted___() {// greeted
+//    public String greeted__(String name){
+        System.out.println("checking...");
+
+        return namesMap;
+
+    }
+    public int totalNumberGreeted(String namesGreeted){
+        if (!namesMap.containsKey(namesGreeted)){
+            namesMap.get(namesGreeted);
+        }
+        return namesMap.get(namesGreeted);
+    }
+
+
+    public String greetName(String name, String lang) {
+
+
+        return null;
+    }
+
+
+
+
+    public void exit() { // exit
+        System.exit(0);
+    }
+
+  public String help() {//help
+      String n = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
+              "greet\t---->\tname (default language)\n" +
+              "greet\t---->\tname\t---->\tlanguage\n" +
+              "greeted\t---->\treturns a map{}\n" +
+              "greeted\t---->\tname (returns number of times name have been greeted\n" +
+              "counter\t---->\treturns unique names been greeted\n" +
+              "clear\t---->\tset the map{} to 0\n" +
+              "clear\t---->\tname (decrease the counter by 1)\n" +
+              "exit\t---->\texits the application\n\n";
+
+      return n;
+  }
+    public void clear(){
+        namesMap.clear();
+    }
+    public Map<String,Integer> counter(){ //counter // getCountForAllUser
+        return namesMap;
+    }
+    public String greet(String name, String language) {// greet // greet
 
         try {
             if (!namesMap.containsKey(name)) {
@@ -62,60 +125,7 @@ public class GreetBase implements Commands {
         }
     }
 
-    public void clear(){
-//        Map<String, Integer> databaseMap = new HashMap<>();
 
-
-        namesMap.clear();
-
-    }
-
-    public int getCountForAllUser() {
-        return namesMap.size();
-    }
-
-    public int counter() {
-        return greetCounter;
-    }
-
-    public Map<String, Integer> greeted() {
-        System.out.println("checking...");
-
-        return namesMap;
-
-        }
-
-
-    public void exit() {
-        System.exit(0);
-    }
-
-  public String help() {
-      String n = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
-              "greet\t---->\tname (default language)\n" +
-              "greet\t---->\tname\t---->\tlanguage\n" +
-              "greeted\t---->\treturns a map{}\n" +
-              "greeted\t---->\tname (returns number of times name have been greeted\n" +
-              "counter\t---->\treturns unique names been greeted\n" +
-              "clear\t---->\tset the map{} to 0\n" +
-              "clear\t---->\tname (decrease the counter by 1)\n" +
-              "exit\t---->\texits the application\n\n";
-
-      return n;
-  }
-    public int totalNumberGreeted(String namesGreeted){
-        if (!namesMap.containsKey(namesGreeted)){
-             namesMap.get(namesGreeted);
-        }
-       return namesMap.get(namesGreeted);
-    }
-
-
-    public String greetName(String name, String lang) {
-
-
-        return null;
-    }
 }
 
 

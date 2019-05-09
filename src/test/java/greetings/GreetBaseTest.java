@@ -30,7 +30,7 @@ class GreetBaseTest {
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetBase.greet("jack","chinese"), "Nǐ hǎo, jack");
         assertEquals(greetBase.greet("Johan","english"),"Hello, Johan");
-        assertEquals(2,greetBase.getCountForAllUser());
+        assertEquals(2,greetBase.counter());
         // returns only number of unique users/names
     }
     @Test
