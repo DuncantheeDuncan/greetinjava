@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0133d1c-d526-47fe-9611-1dc579d8033d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/greetings/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/greetings/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/greetings/GreetBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/greetings/GreetBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/greetings/greet/JdbcGreet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/greetings/greet/JdbcGreet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__add_person.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__add_person.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/greetings/greet/JdbcGreetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/greetings/greet/JdbcGreetTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="c0133d1c-d526-47fe-9611-1dc579d8033d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="89" column="68" lean-forward="true" selection-start-line="89" selection-start-column="68" selection-end-line="89" selection-end-column="68" />
+            <state relative-caret-position="83">
+              <caret line="109" column="20" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/greetings/GreetBase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
@@ -149,8 +141,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/db/migration/V2__add_person.sql" />
         <option value="$PROJECT_DIR$/src/main/java/greetings/Commands.java" />
         <option value="$PROJECT_DIR$/src/main/java/greetings/greet/JdbcGreet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java" />
         <option value="$PROJECT_DIR$/src/main/java/greetings/GreetBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java" />
       </list>
     </option>
   </component>
@@ -279,7 +271,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557241594259" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557242165776" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -459,7 +451,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19469696" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -477,9 +468,9 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49848485" visible="true" weight="0.24341086" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49848485" weight="0.24341086" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32868218" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.53333336" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.53333336" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50151515" side_tool="true" weight="0.25891474" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32713178" />
       <window_info anchor="bottom" id="DB Execution Console" order="11" />
@@ -682,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="89" column="68" lean-forward="true" selection-start-line="89" selection-start-column="68" selection-end-line="89" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/greetings/GreetBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -703,6 +684,16 @@
             <element signature="e#2000#2001#0" expanded="true" />
             <element signature="e#2063#2064#0" expanded="true" />
             <element signature="e#2245#2246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/greetings/greet/GreetAPerson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="109" column="20" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
