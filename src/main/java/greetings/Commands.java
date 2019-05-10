@@ -11,8 +11,10 @@ public interface Commands {
     void clear();
     String  counter();
     String greet(String name, String language);
-    String clearWithAName(String name);
+    void clearWithAName(String name);
     String greeted();
+    Map<String, Integer> greetedWithName();
+//    String greetedWithName();
 
 
 

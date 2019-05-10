@@ -13,6 +13,9 @@ import static java.lang.String.valueOf;
 
 public class JdbcGreet implements Commands {
 
+    Map<String, Integer> databaseMap = new HashMap<>();
+
+
 
     final String FIND_ALL_USERS_SQL = "select * from PERSON "; // greeted
     final String FIND_NAME_SQL = "select * from PERSON where name = ?";
@@ -93,7 +96,7 @@ public class JdbcGreet implements Commands {
 //        public int counterDB() throws SQLException {
 
 //        findName.execute();
-        Map<String, Integer> databaseMap = new HashMap<>();
+      //  Map<String, Integer> databaseMap = new HashMap<>();
         try {
             findAllUsersPreparedStatement.execute();
             ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
@@ -148,7 +151,9 @@ public class JdbcGreet implements Commands {
             }
             // return databaseMap+ Languages.valueOf(language).getGreeting();
 //            return String.valueOf(databaseMap);
-            return Languages.valueOf(language).getGreeting() + ", " + name;
+//            return Languages.valueOf(language).getGreeting() + ", " + name;
+            System.out.println(language.toUpperCase() + " language is not available yet. " );
+            return Languages.valueOf("zulu").getGreeting() + ", " + name;
 
 
         }catch (Exception e){
@@ -159,21 +164,18 @@ public class JdbcGreet implements Commands {
 //        return databaseMap+ Languages.valueOf(language).getGreeting();
         return Languages.valueOf(language).getGreeting() + ", " + name;
     }
-    public String clearWithAName(String name){ // clear // clearNames
-        Map<String, Integer> databaseMap = new HashMap<>();
+    public void clearWithAName(String name){ // clear // clearNames
+//        Map<String, Integer> databaseMap = new HashMap<>();
 
         try {
-
-                deleteANames.setString(1, name);
-                deleteANames.executeUpdate();
-
-
+            deleteANames.setString(1, name);
+            deleteANames.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         String text = "Successfully removed " +name.toUpperCase()+ " from the list";
-        return text;
+//        return text;
 
     }
     public String greeted() {// findUsers
@@ -192,7 +194,7 @@ public class JdbcGreet implements Commands {
                 int counter = rs.getInt("counter");
                 databaseMap.put(name, counter);
 
-                System.out.println("-------> " + name);
+                System.out.println("-------> " + name );
             }
 
             //  return databaseMap;
@@ -208,6 +210,37 @@ public class JdbcGreet implements Commands {
 
 
 
+    public Map<String, Integer> greetedWithName() {// working for DATABASE
+        Map<String, Integer> databaseMap = new HashMap<>();
+
+        System.out.println("Querying from DataBase..");
+        try {
+//            findAllUsersPreparedStatement.execute();
+//            countAllGreetedNamesPreparedStatement.execute();
+            ResultSet rs = findAllUsersPreparedStatement.executeQuery(); //coming from db: database
+
+            //if you are finding one user by name, use if not while
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                int counter = rs.getInt("counter");
+                databaseMap.put(name, counter);
+
+
+            }
+
+            //  return databaseMap;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return databaseMap;
+
+//        return String.valueOf(databaseMap);
+
+    }
+
 
 
 
@@ -215,7 +248,9 @@ public class JdbcGreet implements Commands {
 //    not yet fixed.
 //-----------------------------------------------------------------------
 
-
+    public String getDBNames(){
+        return databaseMap.toString();
+    }
 
 
 
@@ -240,12 +275,6 @@ public class JdbcGreet implements Commands {
 
 
 
-    public Map<String, Integer> greeted_DD() {// working for DATABASE
-        System.out.println("checking...");
-       // return namesMap;
-//        return db.findUsers();///
-        return null;
-    }
 
 
 }

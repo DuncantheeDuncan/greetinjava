@@ -46,9 +46,12 @@ public class GreetBase implements Commands {
 
 
 
-    public String greeted___() {// greeted //  fix conditional statent if name exists
+    public String greeted___(String name) {// greeted //  fix conditional statent if name exists
 //    public String greeted__(String name){
         System.out.println("checking...");
+//        if (namesMap.containsKey(namesMap.values())){
+//            System.out.println("55555555");
+//        }
 
         return String.valueOf(namesMap);
 
@@ -61,11 +64,7 @@ public class GreetBase implements Commands {
     }
 
 
-    public String greetName(String name, String lang) {
 
-
-        return null;
-    }
 
 
 
@@ -112,7 +111,7 @@ public class GreetBase implements Commands {
         }
     }
 
-    public String clearWithAName(String name) { //clear // greeted__
+    public void clearWithAName(String name) { //clear // greeted__
 
         System.out.println("checking...");
         if (namesMap.containsKey(name)) {
@@ -124,7 +123,7 @@ public class GreetBase implements Commands {
         }
 
 //        String map = String.valueOf(namesMap.remove(name));
-       return String.valueOf(namesMap.remove(name + "dddd" ));
+//       return String.valueOf(namesMap.remove(name + "dddd" ));
 
 //        return map+ "num";
 
@@ -141,6 +140,23 @@ public class GreetBase implements Commands {
         return String.valueOf(namesMap);
     }
 
+    public Map<String, Integer> greetedWithName() {
+
+
+        return namesMap;
+    }
+
+
+////    public Map<String, Integer> greeted_DD() {// working for DATABASE
+//    public String greeted_DD(){
+//        System.out.println("checking...");
+//        Map<String, Integer> databaseMap = new HashMap<>();
+//
+//        // return namesMap;
+//        return db.greeted();///
+////        return databaseMap;
+
+//    }
 
 
 
