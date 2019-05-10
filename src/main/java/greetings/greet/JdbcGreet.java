@@ -79,7 +79,7 @@ public class JdbcGreet implements Commands {
         }
         return "The total counter is (" + databaseMap.size()+")";
     }
-    public  String greet(String name, String language) {
+    public  String greet(String name, String language) throws IllegalArgumentException, SQLException  {
         Map<String, Integer> databaseMap = new HashMap<>();
         System.out.println("greeting from the Database");
         try{
@@ -102,13 +102,15 @@ public class JdbcGreet implements Commands {
                 System.out.println(databaseMap);
             }
 
-        }catch (Exception e){
+            return Languages.valueOf(language).getGreeting() + ", " + name;
+        }catch (IllegalArgumentException e){
             e.printStackTrace();
-            System.out.println(language.toUpperCase() + " language is not available yet. " );
-            return Languages.valueOf("zulu").getGreeting() + ", " + name;
+            return language.toUpperCase() + " language is not available yet. \n"+ Languages.valueOf("zulu").getGreeting() + ", " + name;
 
         }
-        return Languages.valueOf(language).getGreeting() + ", " + name;
+
+//        System.out.println(language.toUpperCase() + " language is not available yet. " );
+
     }
     public void clearWithAName(String name){
         Map<String, Integer> databaseMap = new HashMap<>();
