@@ -1,7 +1,6 @@
-package greetings.greet;
-
-import greetings.Commands;
-import greetings.Languages;
+package net.greet;
+import net.Commands;
+import net.Languages;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -109,7 +108,6 @@ public class JdbcGreet implements Commands {
 
         }
 
-//        System.out.println(language.toUpperCase() + " language is not available yet. " );
 
     }
     public void clearWithAName(String name){
@@ -141,25 +139,30 @@ public class JdbcGreet implements Commands {
         return String.valueOf(databaseMap);
     }
 
-    public Map<String, Integer> greetedWithName() {
+    public String greetedWithName(String person) {
          Map<String, Integer> databaseMap = new HashMap<>();
         System.out.println("Querying from DataBase...");
+
         try {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
                 databaseMap.put(name, counter);
+
             }
+//            return databaseMap.toString();
+           return databaseMap.values().toString();
         } catch (Exception e) {
-            e.printStackTrace();
+            return databaseMap.toString()+ "four";
+//            e.printStackTrace();
         }
-        return databaseMap;
+
     }
 
     public String getDBNames(){
         Map<String, Integer> databaseMap = new HashMap<>();
-        return databaseMap.toString();
+        return databaseMap.toString() + "thuuuuuus";
     }
 
 
