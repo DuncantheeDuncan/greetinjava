@@ -126,12 +126,12 @@ public class CommandsUsingJDBC implements Commands {
         System.out.println("Querying from DataBase...");
         try {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-            System.out.println("Greeted names ");
+            System.out.println("Greeted names \tCounter");
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
                 databaseMap.put(name, counter);
-                System.out.println("-------> " + name );
+                System.out.println("-------> " + name+"\t"+counter );// verify...
             }
         } catch (Exception e){
             e.printStackTrace();

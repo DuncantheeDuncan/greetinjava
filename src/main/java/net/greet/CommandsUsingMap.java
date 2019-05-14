@@ -8,18 +8,8 @@ public class CommandsUsingMap implements Commands {
 
     Map<String, Integer> namesMap = new HashMap<>();
 
-
-
-
-    public int totalNumberGreeted(String namesGreeted) {
-        if (!namesMap.containsKey(namesGreeted)) {
-            namesMap.get(namesGreeted);
-        }
-        return namesMap.get(namesGreeted);
-    }
-
-
     public void exit() {
+        System.out.println("Till next time -:) goodbye!");
         System.exit(0);
     }
 
@@ -46,7 +36,6 @@ public class CommandsUsingMap implements Commands {
     }
 
     public String greet(String name, String language) {
-
         try {
             if (!namesMap.containsKey(name)) {
                 namesMap.put(name, 0);
@@ -72,22 +61,15 @@ public class CommandsUsingMap implements Commands {
     }
 
     public String greeted() {
-        int tnumberGreeted = 0;
+        int totalNumberOfGreetedNames = 0;
         for (Integer nameCount : namesMap.values()) {
-            tnumberGreeted += nameCount;
+            totalNumberOfGreetedNames += nameCount;
         }
-        System.out.println(namesMap);
-
-        return String.valueOf(namesMap);
+        System.out.println("Greeted Names:\n"+namesMap.toString());
+        return namesMap.toString();
     }
 
     public String greetedWithName(String name) {
-//        Map<String, Integer> namesMap = new HashMap<>();
-//        String person = "";
-//        for (HashMap.Entry entry : namesMap.entrySet()) {
-//        return   person += "" + entry.getKey() + " has been greeted " + entry.getValue() + " times" ;
-//        }
-//        return person;
         try {
             int count = namesMap.get(name);
             return name + " has been greeted " + count + " times";
@@ -95,13 +77,7 @@ public class CommandsUsingMap implements Commands {
             return name + " has been greeted 0 times";
         }
     }
-//-------------------
 
-//    public Map<String, Integer> greetedWithName() {
-//
-//        return namesMap;
-//    }
-//    ---------------
 }
 
 

@@ -1,30 +1,30 @@
 package net.greet;
-
 import org.junit.jupiter.api.Test;
-
 import java.sql.SQLException;
-
 import static org.junit.Assert.assertEquals;
-
 class CommandsUsingMapTests {
     @Test
     public void testGreet() throws SQLException, ClassNotFoundException {
-        CommandsUsingMap greetBase = new CommandsUsingMap();
-        assertEquals(greetBase.greet("Xui","chinese"),"Nǐ hǎo, Xui");
-        assertEquals(greetBase.greet("Phumlani","zulu"),"Saw'bona, Phumlani");
-        assertEquals(greetBase.greet("Johan","english"),"Hello, Johan");
-        assertEquals(greetBase.greet("Muziwakhe","xhosa"),"Molo, Muziwakhe");
+        CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
+
+        assertEquals("Nǐ hǎo, Xui",commandsUsingMap.greet("Xui","chinese"));
+        assertEquals("Saw'bona, Phumlani",commandsUsingMap.greet("Phumlani","zulu"));
+        assertEquals("Molo, Mvulo",commandsUsingMap.greet("Mvulo","xhosa"));
+
     }
 
     @Test
      void getCounter() throws SQLException, ClassNotFoundException {
-        CommandsUsingMap greetBase = new CommandsUsingMap();
-        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
-        assertEquals(greetBase.greet("jack","chinese"), "Nǐ hǎo, jack");
-        assertEquals(greetBase.greet("Johan","english"),"Hello, Johan");
-        assertEquals("The total counter is (2)",greetBase.counter());
+        CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
+
+        commandsUsingMap.greet("Steven","Venda");
+        commandsUsingMap.greet("Steve","chinese");
+        commandsUsingMap.greet("Jack","english");
+
+        assertEquals("The total counter is (3)",commandsUsingMap.counter());
 
     }
+//    Last stop ---------------------------------------------------------------------------
     @Test
     public void testHowManyTimesANameHasBeenGreeted() throws SQLException, ClassNotFoundException {
         CommandsUsingMap greetBase = new CommandsUsingMap();
@@ -34,7 +34,7 @@ class CommandsUsingMapTests {
         assertEquals(greetBase.greet("Xiou","chinese"), "Nǐ hǎo, Xiou");
 
         assertEquals("jack has been greeted 3 times",greetBase.greetedWithName("jack"));
-//        assertEquals("Xiou has been greeted 1 times",greetBase.greetedWithName("Xiou"));
+
 
     }
     @Test
