@@ -1,4 +1,4 @@
-package net;
+package net.greet;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 
-class GreetBaseTest {
+class CommandsUsingMapTests {
     @Test
     public void testGreet() throws SQLException, ClassNotFoundException {
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
         assertEquals(greetBase.greet("Xui","chinese"),"Nǐ hǎo, Xui");
         assertEquals(greetBase.greet("Phumlani","zulu"),"Saw'bona, Phumlani");
         assertEquals(greetBase.greet("Johan","english"),"Hello, Johan");
@@ -18,7 +18,7 @@ class GreetBaseTest {
 
     @Test
      void getCounter() throws SQLException, ClassNotFoundException {
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetBase.greet("jack","chinese"), "Nǐ hǎo, jack");
         assertEquals(greetBase.greet("Johan","english"),"Hello, Johan");
@@ -27,7 +27,7 @@ class GreetBaseTest {
     }
     @Test
     public void testHowManyTimesANameHasBeenGreeted() throws SQLException, ClassNotFoundException {
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
         greetBase.greet("jack","xhosa");
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
@@ -39,7 +39,7 @@ class GreetBaseTest {
     }
     @Test
     void testingTheNullLanguage() throws SQLException, ClassNotFoundException {
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
         assertEquals(greetBase.greet("jack","shangan"), "Saw'bona, jack");
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetBase.greet("jack","spanish"), "Saw'bona, jack");
@@ -49,7 +49,7 @@ class GreetBaseTest {
 
     @Test
      void testGreeted() throws SQLException, ClassNotFoundException {
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
         assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
         assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
         assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
@@ -60,7 +60,7 @@ class GreetBaseTest {
 
     @Test
     void  greetedWithname(){//----------------------------
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
 
         greetBase.greet("Yegan","xhosa");
         greetBase.greet("Yegan","xhosa");
@@ -73,7 +73,7 @@ class GreetBaseTest {
     }
     @Test
     void clearMap(){
-        GreetBase greetBase  = new GreetBase();
+        CommandsUsingMap greetBase  = new CommandsUsingMap();
 
         greetBase.greet("Sandile","chinese");
         greetBase.greet("Sifiso","xhosa");
@@ -85,7 +85,7 @@ class GreetBaseTest {
     @Test
     void clearAName(){
 
-        GreetBase greetBase = new GreetBase();
+        CommandsUsingMap greetBase = new CommandsUsingMap();
         greetBase.greet("Sandile","chinese");
         greetBase.greet("Sifiso","xhosa");
         greetBase.greet("Phumlani","xhosa");

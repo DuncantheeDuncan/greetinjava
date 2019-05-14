@@ -1,15 +1,13 @@
 package net.greet;
 
 
-import net.GreetBase;
-
 import java.sql.*;
 import java.util.Scanner;
 
 public class Greeter {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-//        GreetBase db = new GreetBase();
-        JdbcGreet db = new JdbcGreet();
+        CommandsUsingMap db = new CommandsUsingMap();
+//        CommandsUsingJDBC db = new CommandsUsingJDBC();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
@@ -50,10 +48,6 @@ public class Greeter {
                         }else if (command.equals("greeted")){
                             try {
                                 String name = commandArray[1].toLowerCase();
-                          //      int mapNo = db.greetedWithName().get(name);
-                           //     System.out.println(name +" have been greeted: "+ mapNo + " time(s)");
-
-
                                 System.out.println(db.greetedWithName(name));
                             }
                             catch (Exception e){

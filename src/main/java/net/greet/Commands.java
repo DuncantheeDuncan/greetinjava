@@ -1,4 +1,4 @@
-package net;
+package net.greet;
 
 import java.sql.SQLException;
 import java.util.Map;
@@ -14,8 +14,7 @@ public interface Commands {
     String greeted();
 //   String Map<String, Integer> greetedWithName();
 //  ̣ String Map<String, Integer> greetedWithName();
-//    String greetedWithName(String name) throws SQLException;
-public java.util.Map<String, Integer> greetedWithName();
+    String greetedWithName(String name) throws SQLException;
 }
 
 

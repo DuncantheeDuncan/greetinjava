@@ -1,8 +1,9 @@
 
-package net;
+package net.greet;
+
 import java.util.HashMap;
 import java.util.Map;
-public class GreetBase implements Commands {
+public class CommandsUsingMap implements Commands {
     private int greetCounter = 1;
 
     Map<String, Integer> namesMap = new HashMap<>();
@@ -80,26 +81,26 @@ public class GreetBase implements Commands {
         return String.valueOf(namesMap);
     }
 
-//    public String greetedWithName(String name) {
-////        Map<String, Integer> namesMap = new HashMap<>();
-////        String person = "";
-////        for (HashMap.Entry entry : namesMap.entrySet()) {
-////        return   person += "" + entry.getKey() + " has been greeted " + entry.getValue() + " times" ;
-////        }
-////        return person;
-//        try {
-//            int count = namesMap.get(name);
-//            return name + " has been greeted " + count + " times";
-//        }catch (NullPointerException e) {
-//            return name + " has been greeted 0 times";
+    public String greetedWithName(String name) {
+//        Map<String, Integer> namesMap = new HashMap<>();
+//        String person = "";
+//        for (HashMap.Entry entry : namesMap.entrySet()) {
+//        return   person += "" + entry.getKey() + " has been greeted " + entry.getValue() + " times" ;
 //        }
-//    }
+//        return person;
+        try {
+            int count = namesMap.get(name);
+            return name + " has been greeted " + count + " times";
+        }catch (NullPointerException e) {
+            return name + " has been greeted 0 times";
+        }
+    }
 //-------------------
 
-    public Map<String, Integer> greetedWithName() {
-
-        return namesMap;
-    }
+//    public Map<String, Integer> greetedWithName() {
+//
+//        return namesMap;
+//    }
 //    ---------------
 }
 

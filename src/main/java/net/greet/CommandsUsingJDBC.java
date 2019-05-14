@@ -1,11 +1,10 @@
 package net.greet;
-import net.Commands;
-import net.Languages;
+
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import static java.lang.String.valueOf;
-public class JdbcGreet implements Commands {
+public class CommandsUsingJDBC implements Commands {
 
 
     final String FIND_ALL_USERS_SQL = "select * from PERSON "; // greeted
@@ -25,7 +24,7 @@ public class JdbcGreet implements Commands {
     final String jdbcURL = "jdbc:h2:./target/jdbc_greetinjava";
     Connection conn;
 
-    public JdbcGreet() throws SQLException, ClassNotFoundException {
+    public CommandsUsingJDBC() throws SQLException, ClassNotFoundException {
         Class.forName("org.h2.Driver");
         conn = DriverManager.getConnection(jdbcURL, "sa", "");
         findAllUsersPreparedStatement = conn.prepareStatement(FIND_ALL_USERS_SQL);
@@ -85,6 +84,7 @@ public class JdbcGreet implements Commands {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
             findName.setString(1, name);
             ResultSet resultSet = findName.executeQuery();
+
             if (resultSet.next()) {
                 updateName.setString(1, name);
                 updateName.execute();
@@ -139,71 +139,35 @@ public class JdbcGreet implements Commands {
         return String.valueOf(databaseMap);
     }
 
-    //code broken
 
-//    public String greetedWithName(String person) throws SQLException {
-//        Map<String, Integer> databaseMap = new HashMap<>();
-//        System.out.println("Querying from DataBase...");
-//
-////        try {
-//        ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-//        while (rs.next()) {
-//            String name = rs.getString("name");
-//            int counter = rs.getInt("counter");
-//            databaseMap.put(name, counter);
-//
-//
-//////                int count = namesMap.get(name);
-////
-////                counter =databaseMap.get(name);
-////                return name + " has been greeted " + counter + " times";
-////
-////            }
-//////            return databaseMap.toString();
-////           return databaseMap.keySet().toString();
-////        } catch (Exception e) {
-////            return name + " has been greeted 0 times";
-////            e.printStackTrace();
-////        }
-//
-//            try {
-//                int count = databaseMap.get(name);
-//                return name + " has been greeted " + count + " times";
-//            } catch (Exception e) {
-//                return name + " has been greeted 0 times";
-//            }
-////            }
-//        }
-//
-//    }
-
-
-
-//    ----------------------------
-
-
-    public Map<String, Integer> greetedWithName() {
+    public String greetedWithName(String person) throws SQLException {
         Map<String, Integer> databaseMap = new HashMap<>();
         System.out.println("Querying from DataBase...");
-        try {
-            ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-            while (rs.next()) {
-                String name = rs.getString("name");
-                int counter = rs.getInt("counter");
-                databaseMap.put(name, counter);
+
+        findName.setString(1, person);
+
+        ResultSet rs = findName.executeQuery();
+        if (rs.next()) {
+            int counter = rs.getInt("counter");
+            databaseMap.put(person, counter);
+
+            try {
+                return person + " has been greeted " + counter + " timess";
+            } catch (Exception e) {
+                return person + " has been greeted 0 times";
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return databaseMap;
+            }
+
+return null;
     }
 
-//    -----------------------------
 
-    public String getDBNames(){
-        Map<String, Integer> databaseMap = new HashMap<>();
-        return databaseMap.toString() + "thuuuuuus";
-    }
+
+
+//    public String getDBNames(){
+//        Map<String, Integer> databaseMap = new HashMap<>();
+//        return databaseMap.toString() + "thuuuuuus";
+//    }
 
 
 
@@ -219,13 +183,13 @@ public class JdbcGreet implements Commands {
 
 
 
-
-    public String namesInDB(){
-//        String names = s;
-        Map<String, Integer> databaseMap = new HashMap<>();
-         String namesInTheDatabase = valueOf(databaseMap);
-//        String s = databaseMap.get(names).toString();
-
-        return namesInTheDatabase;
-    }
+//
+//    public String namesInDB(){
+////        String names = s;
+//        Map<String, Integer> databaseMap = new HashMap<>();
+//         String namesInTheDatabase = valueOf(databaseMap);
+////        String s = databaseMap.get(names).toString();
+//
+//        return namesInTheDatabase;
+//    }
 }
