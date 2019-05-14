@@ -139,26 +139,66 @@ public class JdbcGreet implements Commands {
         return String.valueOf(databaseMap);
     }
 
-    public String greetedWithName(String person) {
-         Map<String, Integer> databaseMap = new HashMap<>();
-        System.out.println("Querying from DataBase...");
+    //code broken
 
+//    public String greetedWithName(String person) throws SQLException {
+//        Map<String, Integer> databaseMap = new HashMap<>();
+//        System.out.println("Querying from DataBase...");
+//
+////        try {
+//        ResultSet rs = findAllUsersPreparedStatement.executeQuery();
+//        while (rs.next()) {
+//            String name = rs.getString("name");
+//            int counter = rs.getInt("counter");
+//            databaseMap.put(name, counter);
+//
+//
+//////                int count = namesMap.get(name);
+////
+////                counter =databaseMap.get(name);
+////                return name + " has been greeted " + counter + " times";
+////
+////            }
+//////            return databaseMap.toString();
+////           return databaseMap.keySet().toString();
+////        } catch (Exception e) {
+////            return name + " has been greeted 0 times";
+////            e.printStackTrace();
+////        }
+//
+//            try {
+//                int count = databaseMap.get(name);
+//                return name + " has been greeted " + count + " times";
+//            } catch (Exception e) {
+//                return name + " has been greeted 0 times";
+//            }
+////            }
+//        }
+//
+//    }
+
+
+
+//    ----------------------------
+
+
+    public Map<String, Integer> greetedWithName() {
+        Map<String, Integer> databaseMap = new HashMap<>();
+        System.out.println("Querying from DataBase...");
         try {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
                 databaseMap.put(name, counter);
-
             }
-//            return databaseMap.toString();
-           return databaseMap.values().toString();
         } catch (Exception e) {
-            return databaseMap.toString()+ "four";
-//            e.printStackTrace();
+            e.printStackTrace();
         }
-
+        return databaseMap;
     }
+
+//    -----------------------------
 
     public String getDBNames(){
         Map<String, Integer> databaseMap = new HashMap<>();

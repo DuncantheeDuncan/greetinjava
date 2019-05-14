@@ -142,7 +142,6 @@ class JdbcGreetTest {
         jdbcGreet.greet("Bavumile","zulu");
         jdbcGreet.greet("Bavumile","zulu");
         System.out.println(jdbcGreet.greetedWithName("Bavumile")+" one");
-        System.out.println(jdbcGreet.greetedWithName("Bavumile"));
 
         jdbcGreet.greetedWithName("Bavumile");
         System.out.println(jdbcGreet.greetedWithName("Bavumile")+" two");

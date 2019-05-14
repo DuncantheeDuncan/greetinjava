@@ -1,6 +1,7 @@
 package net;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 public interface Commands {
 
@@ -11,8 +12,10 @@ public interface Commands {
     String greet(String name, String language) throws SQLException;
     void clearWithAName(String name);
     String greeted();
-//    Map<String, Integer> greetedWithName();
-    String greetedWithName(String name);
+//   String Map<String, Integer> greetedWithName();
+//  ̣ String Map<String, Integer> greetedWithName();
+//    String greetedWithName(String name) throws SQLException;
+public java.util.Map<String, Integer> greetedWithName();
 }
 
 

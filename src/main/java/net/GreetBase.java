@@ -80,21 +80,27 @@ public class GreetBase implements Commands {
         return String.valueOf(namesMap);
     }
 
-    public String greetedWithName(String name) {
-//        Map<String, Integer> namesMap = new HashMap<>();
-//        String person = "";
-//        for (HashMap.Entry entry : namesMap.entrySet()) {
-//        return   person += "" + entry.getKey() + " has been greeted " + entry.getValue() + " times" ;
+//    public String greetedWithName(String name) {
+////        Map<String, Integer> namesMap = new HashMap<>();
+////        String person = "";
+////        for (HashMap.Entry entry : namesMap.entrySet()) {
+////        return   person += "" + entry.getKey() + " has been greeted " + entry.getValue() + " times" ;
+////        }
+////        return person;
+//        try {
+//            int count = namesMap.get(name);
+//            return name + " has been greeted " + count + " times";
+//        }catch (NullPointerException e) {
+//            return name + " has been greeted 0 times";
 //        }
-//        return person;
-        try {
-            int count = namesMap.get(name);
-            return name + " has been greeted " + count + " times";
-        }catch (NullPointerException e) {
-            return name + " has been greeted 0 times";
-        }
-    }
+//    }
+//-------------------
 
+    public Map<String, Integer> greetedWithName() {
+
+        return namesMap;
+    }
+//    ---------------
 }
 
 
