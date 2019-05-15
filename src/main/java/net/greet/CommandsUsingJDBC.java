@@ -79,7 +79,6 @@ public class CommandsUsingJDBC implements Commands {
     }
     public  String greet(String name, String language) throws IllegalArgumentException, SQLException  {
         Map<String, Integer> databaseMap = new HashMap<>();
-        System.out.println("greeting from the Database");
         try{
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
             findName.setString(1, name);
@@ -98,7 +97,6 @@ public class CommandsUsingJDBC implements Commands {
                 String nameDB = rs.getString("name");
                 int counter = rs.getInt("counter");
                 databaseMap.put(nameDB, counter);
-                System.out.println(databaseMap);
             }
 
             return Languages.valueOf(language).getGreeting() + ", " + name;
@@ -121,22 +119,23 @@ public class CommandsUsingJDBC implements Commands {
         }
         System.out.println("To make sure your command went successfully try 'greeted' it should not be there ");
       }
-    public String greeted(){
+    public String greeted(){// BUG---
         Map<String, Integer> databaseMap = new HashMap<>();
-        System.out.println("Querying from DataBase...");
         try {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-            System.out.println("Greeted names \tCounter");
+            System.out.println("Greeted names \t\t\tCounter");
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
-                databaseMap.put(name, counter);
-                System.out.println("-------> " + name+"\t"+counter );// verify...
+//                databaseMap.put(name, counter);
+                System.out.println("-------> " + name+"\t\t"+counter );
+                return "------->\t" +name+"\t\t"+counter;
             }
         } catch (Exception e){
             e.printStackTrace();
         }
         return String.valueOf(databaseMap);
+
     }
 
 
@@ -152,7 +151,7 @@ public class CommandsUsingJDBC implements Commands {
             databaseMap.put(person, counter);
 
             try {
-                return person + " has been greeted " + counter + " timess";
+                return person + " has been greeted " + counter + " times";
             } catch (Exception e) {
                 return person + " has been greeted 0 times";
             }

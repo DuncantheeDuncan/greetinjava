@@ -46,8 +46,7 @@ public class CommandsUsingMap implements Commands {
             return Languages.valueOf(language).getGreeting() + ", " + name;
 
         } catch (IllegalArgumentException e) {
-            System.out.println(language.toUpperCase() + " language is not available yet. ");
-            return Languages.valueOf("zulu").getGreeting() + ", " + name;
+            return language.toUpperCase() + " language is not available yet. \n"+ Languages.valueOf("zulu").getGreeting() + ", " + name;
         }
     }
 

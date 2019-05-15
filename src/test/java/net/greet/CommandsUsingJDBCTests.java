@@ -3,14 +3,11 @@ package net.greet;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import static org.junit.Assert.assertEquals;
-
 class CommandsUsingJDBCTests {
     Connection conn;
 
@@ -35,11 +32,7 @@ class CommandsUsingJDBCTests {
 
         jdbcGreet.clearWithAName("Sandile");
         jdbcGreet.clearWithAName("Sifiso");
-
-
-
-        System.out.println(jdbcGreet.greeted());// remove
-
+        assertEquals("------->\tBavumile\t\t1",jdbcGreet.greeted());
     }
     @Test
     void clearTheWholeDatabase() throws SQLException, ClassNotFoundException {
@@ -54,8 +47,6 @@ class CommandsUsingJDBCTests {
 
         jdbcGreet.clear();
 
-
-        System.out.println(jdbcGreet.greeted()+ "the final");// remove
     }
     @Test
     void getCounter() throws SQLException, ClassNotFoundException {
@@ -77,13 +68,12 @@ class CommandsUsingJDBCTests {
     void testGreet() throws SQLException, ClassNotFoundException {
         CommandsUsingJDBC jdbcGreet = new CommandsUsingJDBC();
 
-        assertEquals("Saw'bona, Sifiso",jdbcGreet.greet("Sifiso","zulu"));
-        assertEquals("Saw'bona, Bavumile",jdbcGreet.greet("Bavumile","zulu"));
-        assertEquals("Saw'bona, Sandile",jdbcGreet.greet("Sandile","zulu"));
-        assertEquals("Saw'bona, Sandile",jdbcGreet.greet("Sandile","zulu"));
+        jdbcGreet.greet("Sifiso","zulu");
+        jdbcGreet.greet("Bavumile","zulu");
+        jdbcGreet.greet("Sandile","zulu");
+        jdbcGreet.greet("Sandile","zulu");
 
         jdbcGreet.greeted();
-
     }
     @Test
     void findGreetedNamesandTesTheCounterOfThatName() throws SQLException, ClassNotFoundException {
@@ -104,7 +94,7 @@ class CommandsUsingJDBCTests {
 
 
 
-        assertEquals("Sandile has been greeted 3 timess",jdbcGreet.greetedWithName("Sandile"));
+        assertEquals("Sandile has been greeted 3 times",jdbcGreet.greetedWithName("Sandile"));
 
 
 

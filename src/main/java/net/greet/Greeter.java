@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Greeter {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        CommandsUsingMap db = new CommandsUsingMap();
-//        CommandsUsingJDBC db = new CommandsUsingJDBC();
+//        CommandsUsingMap db = new CommandsUsingMap();
+        CommandsUsingJDBC db = new CommandsUsingJDBC();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");

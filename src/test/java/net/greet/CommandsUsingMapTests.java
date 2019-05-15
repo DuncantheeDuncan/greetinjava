@@ -22,55 +22,42 @@ class CommandsUsingMapTests {
         commandsUsingMap.greet("Jack","english");
 
         assertEquals("The total counter is (3)",commandsUsingMap.counter());
-
     }
-//    Last stop ---------------------------------------------------------------------------
+
     @Test
     public void testHowManyTimesANameHasBeenGreeted() throws SQLException, ClassNotFoundException {
-        CommandsUsingMap greetBase = new CommandsUsingMap();
-        greetBase.greet("jack","xhosa");
-        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
-        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
-        assertEquals(greetBase.greet("Xiou","chinese"), "Nǐ hǎo, Xiou");
+        CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
 
-        assertEquals("jack has been greeted 3 times",greetBase.greetedWithName("jack"));
+        commandsUsingMap.greet("jack","xhosa");
+        commandsUsingMap.greet("jack","xhosa");
+        commandsUsingMap.greet("jack","xhosa");
+        commandsUsingMap.greet("Xiou","chinese");
+
+        assertEquals("jack has been greeted 3 times",commandsUsingMap.greetedWithName("jack"));
 
 
     }
     @Test
     void testingTheNullLanguage() throws SQLException, ClassNotFoundException {
-        CommandsUsingMap greetBase = new CommandsUsingMap();
-        assertEquals(greetBase.greet("jack","shangan"), "Saw'bona, jack");
-        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
-        assertEquals(greetBase.greet("jack","spanish"), "Saw'bona, jack");
-        assertEquals(greetBase.greet("jack","venda"), "Saw'bona, jack");
+        CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
+
+        commandsUsingMap.greet("jack","Spanish");
+        assertEquals("SPANISH language is not available yet. \nSaw'bona, jack",commandsUsingMap.greet("jack","Spanish"));
 
     }
 
     @Test
      void testGreeted() throws SQLException, ClassNotFoundException {
-        CommandsUsingMap greetBase = new CommandsUsingMap();
-        assertEquals(greetBase.greet("jack","xhosa"), "Molo, jack");
-        assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
-        assertEquals(greetBase.greet("Phumlani","zulu"), "Saw'bona, Phumlani");
-        assertEquals(greetBase.greet("Mabaso","english"), "Hello, Mabaso");
+        CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
 
-        assertEquals("{Mabaso=1, jack=1, Phumlani=2}",greetBase.greeted());
+        commandsUsingMap.greet("jack","xhosa");
+        commandsUsingMap.greet("Phumlani","zulu");
+        commandsUsingMap.greet("Phumlani","zulu");
+        commandsUsingMap.greet("Mabaso","english");
+
+        assertEquals("{Mabaso=1, jack=1, Phumlani=2}",commandsUsingMap.greeted());
     }
 
-    @Test
-    void  greetedWithname(){//----------------------------
-        CommandsUsingMap greetBase = new CommandsUsingMap();
-
-        greetBase.greet("Yegan","xhosa");
-        greetBase.greet("Yegan","xhosa");
-        greetBase.greet("Phumlani","xhosa");
-
-
-        assertEquals("Yegan has been greeted 2 times",greetBase.greetedWithName("Yegan"));
-
-
-    }
     @Test
     void clearMap(){
         CommandsUsingMap greetBase  = new CommandsUsingMap();
