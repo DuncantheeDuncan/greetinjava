@@ -6,13 +6,25 @@ import java.util.Scanner;
 
 public class Greeter {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-//        CommandsUsingMap db = new CommandsUsingMap();
-        CommandsUsingJDBC db = new CommandsUsingJDBC();
+        CommandsUsingMap db = new CommandsUsingMap();
+//        CommandsUsingJDBC db = new CommandsUsingJDBC();
+//        CommandProcessor db1 = new CommandProcessor();
+//        CommandExtractor db2 = new CommandExtractor();
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.println("Waiting for your command... ");
             String commands = scanner.nextLine();
-            String[] commandArray = commands.split(" ");
+
+            CommandExtractor commandExtractor = new CommandExtractor(commands);
+
+            // String[] commandArray = commands.split(" ");
+
+            if ("greeted".equals(commandExtractor.getCommand())) {
+
+            }
+
+
+
                 try {
                     if (commandArray.length == 1){
                         String command = commandArray[0].toLowerCase();
@@ -47,8 +59,10 @@ public class Greeter {
                             System.out.println(db.greet(name, language));
                         }else if (command.equals("greeted")){
                             try {
-                                String name = commandArray[1].toLowerCase();
-                                System.out.println(db.greetedWithName(name));
+//                                String name = commandArray[1].toLowerCase();
+//                                System.out.println(db.greetedWithName(name));
+
+
                             }
                             catch (Exception e){
                                 String name = commandArray[1].toLowerCase();
