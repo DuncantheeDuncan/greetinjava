@@ -72,7 +72,7 @@ class CommandsUsingJDBCTests {
         jdbcGreet.greet("Bavumile","zulu");
         jdbcGreet.greet("Sandile","zulu");
         jdbcGreet.greet("Sandile","zulu");
-
+        System.out.println(jdbcGreet.greeted());
         jdbcGreet.greeted();
     }
     @Test
