@@ -6,54 +6,111 @@ import java.util.Scanner;
 
 public class Greeter {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        CommandsUsingMap db = new CommandsUsingMap();
-//        CommandsUsingJDBC db = new CommandsUsingJDBC();
-
         Scanner scanner = new Scanner(System.in);
+
+
         while (true){
             System.out.println("Waiting for your command... ");
-            String commands = scanner.nextLine();
+            String inputCommands = scanner.nextLine();
+            Commands commands = new CommandsUsingMap();
+            CommandProcessor commandProcessor = new CommandProcessor(commands);
+            System.out.println(commandProcessor.mainProcessor(inputCommands));
 
-            CommandExtractor commandExtractor = new CommandExtractor(commands);
-
-            // String[] commandArray = commands.split(" ");
 
 
-//           if ("greeted".equals(commandExtractor.getCommand() && commandExtractor.getName())){
-//                String name = commandExtractor.getName();
-//                System.out.println(db.greetedWithName(name));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // String[] commandArray = commands.split(" ");// todo: don't uncomment this line of code
+
+//            if ("greeted".equals(commandExtractor.getCommand())) {
+//                if (commandExtractor.hasName()) {
+//                    System.out.println(db.greetedWithName(commandExtractor.getName()));
+//                } else {
+//                    db.greeted();
+//                }
+//            } else if ("greet".equals(commandExtractor.getCommand())) {
+//                if (commandExtractor.hasName()) {
+//                    String name = commandExtractor.getName(), language = commandExtractor.getLanguage();
+//                    System.out.println(db.greet(name, language));
+//                } else {
+//                    System.out.println("please try greeting with a name ");
+//                }
+//            } else if ("clear".equals(commandExtractor.getCommand())) {
+//                if (commandExtractor.hasName()) {
+//                    String name = commandExtractor.getName();
+//                    db.clearWithAName(name);
+//                } else {
+//                    db.clear();
+//                }
+//            } else if ("counter".equals(commandExtractor.getCommand())) {
+//                System.out.println(db.counter());
 //            }
-            if ("greeted".equals(commandExtractor.getCommand())) {
-                if(commandExtractor.hasName()) {
-                    System.out.println(db.greetedWithName(commandExtractor.getName()));
-                } else {
-                    db.greeted();
-                }
-            }
-            if ("greet".equals(commandExtractor.getCommand())) {
-                if (commandExtractor.hasName()){
-                    String name = commandExtractor.getName(), language = commandExtractor.getLanguage();
-                    System.out.println(db.greet(name, language));
-                }
-                //todo: check if hasName is true then greet person
-
-            }
-
-
-            if ("clear".equals(commandExtractor.getCommand())) {
-                db.clear();
-            }  if ("counter".equals(commandExtractor.getCommand())) {
-                System.out.println(db.counter());
-            }  if ("exit".equals(commandExtractor.getCommand())) {
-                db.exit();
-            }  if ("help".equals(commandExtractor.getCommand())) {
-                System.out.println(db.help());
-            }
+//            if ("exit".equals(commandExtractor.getCommand())) {
+//                db.exit();
+//            } else if ("help".equals(commandExtractor.getCommand())) {
+//                System.out.println(db.help());
+//            }
 
 
 
 
-
+//todo: HINT!! not to remove the below code yet..
 
 //                try {
 //                    if (getCommand.length == 1){

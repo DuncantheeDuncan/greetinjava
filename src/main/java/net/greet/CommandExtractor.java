@@ -9,7 +9,6 @@ public class CommandExtractor {
     CommandExtractor(String command) {
 
         if (command == null || command.trim().length() == 0) {
-            // the user entered nothing give them the help message
             this.command = "help";
         }
         else {
@@ -32,7 +31,7 @@ public class CommandExtractor {
 
     }
 
-    // getters
+
     public String getName() {
 
         return name;
@@ -48,8 +47,6 @@ public class CommandExtractor {
 
     public boolean hasName() {
         return !name.isEmpty();
-        // if name ="" this will return false.
-        // if name = "name" this will return true
     }
 
 }

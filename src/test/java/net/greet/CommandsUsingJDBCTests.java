@@ -32,7 +32,7 @@ class CommandsUsingJDBCTests {
 
         jdbcGreet.clearWithAName("Sandile");
         jdbcGreet.clearWithAName("Sifiso");
-        assertEquals("------->\tBavumile\t\t1",jdbcGreet.greeted());
+        assertEquals("Greeted Names:\n{Bavumile=1}",jdbcGreet.greeted());
     }
     @Test
     void clearTheWholeDatabase() throws SQLException, ClassNotFoundException {

@@ -55,7 +55,7 @@ class CommandsUsingMapTests {
         commandsUsingMap.greet("Phumlani","zulu");
         commandsUsingMap.greet("Mabaso","english");
 
-        assertEquals("{Mabaso=1, jack=1, Phumlani=2}",commandsUsingMap.greeted());
+        assertEquals("Greeted Names:\n{Mabaso=1, jack=1, Phumlani=2}",commandsUsingMap.greeted());
     }
 
     @Test

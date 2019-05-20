@@ -97,6 +97,7 @@ public class CommandsUsingJDBC implements Commands {
                 String nameDB = rs.getString("name");
                 int counter = rs.getInt("counter");
                 databaseMap.put(nameDB, counter);
+
             }
 
             return Languages.valueOf(language).getGreeting() + ", " + name;
@@ -119,22 +120,22 @@ public class CommandsUsingJDBC implements Commands {
         }
         System.out.println("To make sure your command went successfully try 'greeted' it should not be there ");
       }
-    public String greeted(){// BUG---
+    public String greeted(){
         Map<String, Integer> databaseMap = new HashMap<>();
         try {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-            System.out.println("Greeted names \t\t\tCounter");
             while (rs.next()) {
                 String name = rs.getString("name");
                 int counter = rs.getInt("counter");
-//                databaseMap.put(name, counter);
-                System.out.println("-------> " + name+"\t\t"+counter );
-                return "------->\t" +name+"\t\t"+counter;
+                databaseMap.put(name, counter);
+//                System.out.println("-------> " + name+"\t\t"+counter );
+//                return name +"\t\t"+counter;
             }
         } catch (Exception e){
             e.printStackTrace();
         }
-        return String.valueOf(databaseMap);
+        return "Greeted Names:\n"+databaseMap;
+
 
     }
 
@@ -160,35 +161,4 @@ public class CommandsUsingJDBC implements Commands {
 return null;
     }
 
-
-
-
-//    public String getDBNames(){
-//        Map<String, Integer> databaseMap = new HashMap<>();
-//        return databaseMap.toString() + "thuuuuuus";
-//    }
-
-
-
-//-----------------------------------------------------------------------
-//    not yet fixed.
-//-----------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-//
-//    public String namesInDB(){
-////        String names = s;
-//        Map<String, Integer> databaseMap = new HashMap<>();
-//         String namesInTheDatabase = valueOf(databaseMap);
-////        String s = databaseMap.get(names).toString();
-//
-//        return namesInTheDatabase;
-//    }
 }
