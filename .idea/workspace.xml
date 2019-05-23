@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0133d1c-d526-47fe-9611-1dc579d8033d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/net/greet/CommandProcessForDBCTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/net/greet/CommandProcessorTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/greet/CommandsUsingJDBCTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/greet/CommandsUsingJDBCTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/net/greet/CommandsUsingMapTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/net/greet/CommandsUsingMapTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,12 +20,12 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/Greeter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,19 +36,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            <state relative-caret-position="390">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="405">
+              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#865#866#0" expanded="true" />
+                <element signature="e#900#901#0" expanded="true" />
+                <element signature="e#931#932#0" expanded="true" />
+                <element signature="e#963#964#0" expanded="true" />
+                <element signature="e#1001#1002#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,10 +157,10 @@
         <option value="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java" />
         <option value="$PROJECT_DIR$/src/test/java/net/greet/CommandProcessForDBCTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/net/greet/CommandsUsingJDBCTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java" />
         <option value="$PROJECT_DIR$/src/test/java/net/greet/CommandProcessorTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/greet/Greeter.java" />
       </list>
     </option>
   </component>
@@ -174,10 +172,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-43" />
-    <option name="y" value="-4" />
+    <option name="x" value="183" />
+    <option name="y" value="129" />
     <option name="width" value="1074" />
-    <option name="height" value="736" />
+    <option name="height" value="708" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -222,21 +220,6 @@
               <item name="greetinjava" type="b2602c69:ProjectViewProjectNode" />
               <item name="greetinjava" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="greetinjava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="greetinjava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="migration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="greetinjava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="greetinjava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -263,11 +246,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558364414408" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558521928757" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/starting-with-jdbc-koans" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/starwarz" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -301,7 +284,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in greetinjava">
+  <component name="RunManager" selected="Application.Greeter">
+    <configuration name="Greeter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="net.greet.Greeter" />
+      <module name="greetinjava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="net.greet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in greetinjava" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="greetinjava" />
       <option name="PACKAGE_NAME" value="" />
@@ -357,29 +353,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommandProcessorTests.testCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="greetinjava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="net.greet.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="net.greet" />
-      <option name="MAIN_CLASS_NAME" value="net.greet.CommandProcessorTests" />
-      <option name="METHOD_NAME" value="testCounter" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Greeter" />
         <item itemvalue="JUnit.All in greetinjava" />
         <item itemvalue="JUnit.CommandProcessorTests" />
         <item itemvalue="JUnit.CommandProcessorTests.greeted" />
         <item itemvalue="JUnit.CommandProcessorTests.clearWithname" />
-        <item itemvalue="JUnit.CommandProcessorTests.testCounter" />
       </list>
     </recent_temporary>
   </component>
@@ -397,9 +377,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CommandProcessorTests_testCounter - 2019.05.20 at 16h 47m 06s.xml">
-      <configuration name="CommandProcessorTests.testCounter" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CommandProcessorTests_testCounter - 2019.05.20 at 16h 47m 29s.xml">
       <configuration name="CommandProcessorTests.testCounter" configurationId="JUnit" />
     </history-entry>
@@ -427,6 +404,9 @@
     <history-entry file="CommandProcessorTests - 2019.05.20 at 16h 56m 00s.xml">
       <configuration name="CommandProcessorTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_greetinjava - 2019.05.20 at 16h 59m 39s.xml">
+      <configuration name="All in greetinjava" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -440,7 +420,7 @@
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25757575" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26136363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -456,7 +436,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33488372" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924242" visible="true" weight="0.24186046" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924242" weight="0.25426358" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32868218" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.37984496" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007576" side_tool="true" weight="0.24630542" />
@@ -719,31 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#835#836#0" expanded="true" />
-            <element signature="e#865#866#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/Greeter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/net/greet/CommandsUsingJDBCTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -764,17 +719,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="645">
+          <caret line="78" column="43" lean-forward="true" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="405">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding>
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#900#901#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/Greeter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

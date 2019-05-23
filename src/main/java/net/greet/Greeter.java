@@ -13,6 +13,7 @@ public class Greeter {
             System.out.println("Waiting for your command... ");
             String inputCommands = scanner.nextLine();
             Commands commands = new CommandsUsingMap();
+
             CommandProcessor commandProcessor = new CommandProcessor(commands);
             System.out.println(commandProcessor.mainProcessor(inputCommands));
 

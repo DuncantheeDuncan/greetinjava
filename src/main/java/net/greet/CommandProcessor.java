@@ -2,8 +2,8 @@ package net.greet;
 
 import java.sql.SQLException;
 public class CommandProcessor {
-//        CommandsUsingMap db = new CommandsUsingMap();
-        CommandsUsingJDBC db =new CommandsUsingJDBC();
+        CommandsUsingMap db = new CommandsUsingMap();
+//        CommandsUsingJDBC db =new CommandsUsingJDBC();
     private Commands commands;
 
     public CommandProcessor(Commands commands) throws SQLException, ClassNotFoundException {
