@@ -72,7 +72,6 @@ class CommandsUsingJDBCTests {
         jdbcGreet.greet("Bavumile","zulu");
         jdbcGreet.greet("Sandile","zulu");
         jdbcGreet.greet("Sandile","zulu");
-        System.out.println(jdbcGreet.greeted());
         jdbcGreet.greeted();
     }
     @Test
@@ -91,8 +90,6 @@ class CommandsUsingJDBCTests {
         jdbcGreet.greet("Bavumile","zulu");
         jdbcGreet.greet("Bavumile","zulu");
         jdbcGreet.greet("Bavumile","zulu");
-
-
 
         assertEquals("Sandile has been greeted 3 times",jdbcGreet.greetedWithName("Sandile"));
 

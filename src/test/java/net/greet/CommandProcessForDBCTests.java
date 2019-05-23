@@ -1,6 +1,7 @@
 package net.greet;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -48,13 +49,13 @@ public class CommandProcessForDBCTests {
         assertEquals("please try greeting with a name ",commandProcessor.mainProcessor("greet"));
     }
 
-//    @Test
-//    void GreetWithInvalidLang() throws SQLException, ClassNotFoundException { // bug
-//        Commands commands = new CommandsUsingJDBC();
-//        CommandProcessor commandProcessor = new CommandProcessor(commands);
-//
-//        assertEquals("VENDA language is not available yet. \n" + "Saw'bona, Jabu",commandProcessor.mainProcessor("greet Jabu Venda"));
-//    }
+    @Test
+    void GreetWithInvalidLang() throws SQLException, ClassNotFoundException { // bug
+        Commands commands = new CommandsUsingJDBC();
+        CommandProcessor commandProcessor = new CommandProcessor(commands);
+
+        assertEquals("VENDA language is not available yet. \n" + "Saw'bona, Jabu",commandProcessor.mainProcessor("greet Jabu Venda"));
+    }
     @Test
     void testCounter() throws SQLException, ClassNotFoundException {
         Commands commands = new CommandsUsingJDBC();

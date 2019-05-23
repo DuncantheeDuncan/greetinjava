@@ -36,30 +36,30 @@ public class CommandsUsingJDBC implements Commands {
     }
 
 
-    public void exit(){
+    public String exit(){
         System.exit(0);
+        return "";
     }
     public String help() {
-        String n = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
-                "greet\t---->\tname (default language)\n" +
-                "greet\t---->\tname\t---->\tlanguage\n" +
-                "greeted\t---->\treturns a map{}\n" +
-                "greeted\t---->\tname (returns number of times name have been greeted\n" +
-                "counter\t---->\treturns unique names been greeted\n" +
-                "clear\t---->\tset the map{} to 0\n" +
-                "clear\t---->\tname (decrease the counter by 1)\n" +
-                "exit\t---->\texits the application\n\n";
-
-        return n;
+        String help = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
+                "type\tgreet\tname (default language)\n" +
+                "type\tgreet\tname\t---->\tlanguage\n" +
+                "type\tgreeted\treturns a map{}\n" +
+                "type\tgreeted\tname (returns number of times name have been greeted\n" +
+                "type\tcounter\treturns unique names been greeted\n" +
+                "type\tclear\tset the map{} to 0\n" +
+                "type\tclear\tname (decrease the counter by 1)\n" +
+                "type\texit\texits the application\n\n";
+        return help;
     }
-    public void clear(){
+    public String clear(){
         try {
 
             deleteAllNames.executeUpdate();
-            System.out.println("To make sure your command went successfully try 'counter' it should be set to 0. ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return "To make sure your command went successfully try 'counter' it should be set to 0. ";
     }
 
     public String counter(){
@@ -79,71 +79,67 @@ public class CommandsUsingJDBC implements Commands {
     }
     public  String greet(String name, String language) throws IllegalArgumentException, SQLException  {
         Map<String, Integer> databaseMap = new HashMap<>();
+
+        ResultSet rs = findAllUsersPreparedStatement.executeQuery();
+        findName.setString(1, name);
+        ResultSet resultSet = findName.executeQuery();
+
+        if (resultSet.next()) {
+            updateName.setString(1, name);
+            updateName.execute();
+        }
+        else {
+            addUserToDBPreparedStatement.setString(1, name);
+            addUserToDBPreparedStatement.setInt(2, 1);
+            addUserToDBPreparedStatement.execute();
+        }
+        while (rs.next()){
+            String nameDB = rs.getString("name");
+            int counter = rs.getInt("counter");
+            databaseMap.put(nameDB, counter);
+
+        }
         try{
-            ResultSet rs = findAllUsersPreparedStatement.executeQuery();
-            findName.setString(1, name);
-            ResultSet resultSet = findName.executeQuery();
-
-            if (resultSet.next()) {
-                updateName.setString(1, name);
-                updateName.execute();
-            }
-            else {
-                addUserToDBPreparedStatement.setString(1, name);
-                addUserToDBPreparedStatement.setInt(2, 1);
-                addUserToDBPreparedStatement.execute();
-            }
-            while (rs.next()){
-                String nameDB = rs.getString("name");
-                int counter = rs.getInt("counter");
-                databaseMap.put(nameDB, counter);
-
-            }
-
             return Languages.valueOf(language).getGreeting() + ", " + name;
         }catch (IllegalArgumentException e){
-            e.printStackTrace();
             return language.toUpperCase() + " language is not available yet. \n"+ Languages.valueOf("zulu").getGreeting() + ", " + name;
 
         }
 
 
     }
-    public void clearWithAName(String name){
-        Map<String, Integer> databaseMap = new HashMap<>();
-
+    public String clearWithAName(String name) throws SQLException {
+        deleteANames.setString(1, name);
+        deleteANames.executeUpdate();
         try {
-            deleteANames.setString(1, name);
-            deleteANames.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            return "deleted";
+        } catch (Exception e) {
+            return "To make sure your command went successfully try 'greeted' it should not be there ";
         }
-        System.out.println("To make sure your command went successfully try 'greeted' it should not be there ");
       }
+
+
     public String greeted(){
         Map<String, Integer> databaseMap = new HashMap<>();
         try {
             ResultSet rs = findAllUsersPreparedStatement.executeQuery();
+            String name;
+            int counter;
             while (rs.next()) {
-                String name = rs.getString("name");
-                int counter = rs.getInt("counter");
+                 name = rs.getString("name");
+                 counter = rs.getInt("counter");
                 databaseMap.put(name, counter);
-//                System.out.println("-------> " + name+"\t\t"+counter );
-//                return name +"\t\t"+counter;
             }
+
         } catch (Exception e){
             e.printStackTrace();
         }
         return "Greeted Names:\n"+databaseMap;
-
-
     }
 
 
     public String greetedWithName(String person) throws SQLException {
         Map<String, Integer> databaseMap = new HashMap<>();
-        System.out.println("Querying from DataBase...");
-
         findName.setString(1, person);
 
         ResultSet rs = findName.executeQuery();
@@ -160,5 +156,4 @@ public class CommandsUsingJDBC implements Commands {
 
 return null;
     }
-
 }

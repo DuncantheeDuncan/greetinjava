@@ -1,6 +1,9 @@
 package net.greet;
 
 public class CommandExtractor {
+    //todo: greeted + name should not return 'null' if name is not greeted
+    //todo: greet + name should capitalize Name
+
 
     String name;
     String command;
