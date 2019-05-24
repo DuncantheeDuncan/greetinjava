@@ -20,7 +20,7 @@ public class CommandExtractor {
             this.command = commandsOfArrays[0];
             if (commandsOfArrays.length >= 2) {
 
-                this.name = commandsOfArrays[1];
+                this.name = commandsOfArrays[1].toUpperCase();
             } else {
                 this.name = "";
             }

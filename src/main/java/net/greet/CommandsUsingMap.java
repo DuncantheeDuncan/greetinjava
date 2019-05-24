@@ -36,6 +36,7 @@ public class CommandsUsingMap implements Commands {
     }
 
     public String greet(String name, String language) {
+//        name = name.substring(0,1).toUpperCase()+name.substring(1).toLowerCase();
         try {
             if (!namesMap.containsKey(name)) {
                 namesMap.put(name, 0);

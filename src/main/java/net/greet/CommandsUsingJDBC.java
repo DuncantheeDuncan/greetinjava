@@ -79,6 +79,7 @@ public class CommandsUsingJDBC implements Commands {
     }
     public  String greet(String name, String language) throws IllegalArgumentException, SQLException  {
         Map<String, Integer> databaseMap = new HashMap<>();
+//        name = name.substring(0,1).toUpperCase()+name.substring(1).toLowerCase();
 
         ResultSet rs = findAllUsersPreparedStatement.executeQuery();
         findName.setString(1, name);
@@ -141,19 +142,22 @@ public class CommandsUsingJDBC implements Commands {
     public String greetedWithName(String person) throws SQLException {
         Map<String, Integer> databaseMap = new HashMap<>();
         findName.setString(1, person);
-
         ResultSet rs = findName.executeQuery();
         if (rs.next()) {
             int counter = rs.getInt("counter");
             databaseMap.put(person, counter);
-
             try {
+                System.out.println(counter);
                 return person + " has been greeted " + counter + " times";
             } catch (Exception e) {
                 return person + " has been greeted 0 times";
             }
-            }
+        }
 
-return null;
+
+        return null;
     }
 }
+
+
+

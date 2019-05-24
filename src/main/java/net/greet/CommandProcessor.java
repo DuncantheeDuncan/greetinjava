@@ -39,7 +39,7 @@ public class CommandProcessor {
         } else if (commandExtractor.getCommand().equals("help")) {
             return db.help();
         }
-        return "type help";
+        return "";
     }
 
 }
