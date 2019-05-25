@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0133d1c-d526-47fe-9611-1dc579d8033d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingMap.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="162" selection-start-line="162" selection-end-line="162" />
+            <state relative-caret-position="489">
+              <caret line="163" column="22" selection-start-line="163" selection-start-column="22" selection-end-line="163" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -207,10 +203,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="183" />
-    <option name="y" value="129" />
-    <option name="width" value="1074" />
-    <option name="height" value="708" />
+    <option name="x" value="1542" />
+    <option name="y" value="12" />
+    <option name="width" value="1072" />
+    <option name="height" value="700" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -281,7 +277,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558712068379" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558795979635" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -420,12 +416,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_greetinjava - 2019.05.23 at 17h 04m 26s.xml">
-      <configuration name="All in greetinjava" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_greetinjava - 2019.05.23 at 17h 04m 42s.xml">
-      <configuration name="All in greetinjava" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_greetinjava - 2019.05.23 at 17h 05m 24s.xml">
       <configuration name="All in greetinjava" configurationId="JUnit" />
     </history-entry>
@@ -450,6 +440,12 @@
     <history-entry file="CommandProcessForDBCTests_greetedWithAName - 2019.05.24 at 17h 30m 27s.xml">
       <configuration name="CommandProcessForDBCTests.greetedWithAName" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CommandProcessForDBCTests_greetedWithAName - 2019.05.24 at 17h 34m 51s.xml">
+      <configuration name="CommandProcessForDBCTests.greetedWithAName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CommandProcessForDBCTests_greetedWithAName - 2019.05.24 at 17h 35m 26s.xml">
+      <configuration name="CommandProcessForDBCTests.greetedWithAName" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -461,7 +457,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
+    <frame x="1366" y="-4" width="1366" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2659091" />
@@ -480,7 +476,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33488372" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924242" visible="true" weight="0.2372093" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49924242" weight="0.2372093" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32868218" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.37984496" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007576" side_tool="true" weight="0.24630542" />
@@ -820,8 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/greet/CommandsUsingJDBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="162" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="489">
+          <caret line="163" column="22" selection-start-line="163" selection-start-column="22" selection-end-line="163" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
