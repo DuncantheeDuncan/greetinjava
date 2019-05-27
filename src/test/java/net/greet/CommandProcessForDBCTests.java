@@ -29,7 +29,7 @@ public class CommandProcessForDBCTests {
         Commands commands = new CommandsUsingJDBC();
         CommandProcessor commandProcessor = new CommandProcessor(commands);
 
-        assertEquals("Saw'bona, phumlani",commandProcessor.mainProcessor("greet phumlani"));
+        assertEquals("Saw'bona, Phumlani",commandProcessor.mainProcessor("greet Phumlani"));
 
 
     }
@@ -92,10 +92,11 @@ public class CommandProcessForDBCTests {
         Commands commands = new CommandsUsingJDBC();
         CommandProcessor commandProcessor = new CommandProcessor(commands);
 
-        commandProcessor.mainProcessor("greet musa");
+        commandProcessor.mainProcessor("clear");
+        commandProcessor.mainProcessor("greet Musa");
         commandProcessor.mainProcessor("greet Njabulo");
 
-        commandProcessor.mainProcessor("clear musa");
+        commandProcessor.mainProcessor("clear Musa");
         assertEquals("Greeted Names:\n{Njabulo=1}",commandProcessor.mainProcessor("greeted"));
     }
     @Test

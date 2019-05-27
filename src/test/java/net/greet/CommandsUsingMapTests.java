@@ -28,12 +28,12 @@ class CommandsUsingMapTests {
     public void testHowManyTimesANameHasBeenGreeted() throws SQLException, ClassNotFoundException {
         CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
 
-        commandsUsingMap.greet("jack","xhosa");
-        commandsUsingMap.greet("jack","xhosa");
-        commandsUsingMap.greet("jack","xhosa");
+        commandsUsingMap.greet("Jack","xhosa");
+        commandsUsingMap.greet("Jack","xhosa");
+        commandsUsingMap.greet("Jack","xhosa");
         commandsUsingMap.greet("Xiou","chinese");
 
-        assertEquals("jack has been greeted 3 times",commandsUsingMap.greetedWithName("jack"));
+        assertEquals("Jack has been greeted 3 times",commandsUsingMap.greetedWithName("Jack"));
 
 
     }
@@ -41,8 +41,8 @@ class CommandsUsingMapTests {
     void testingTheNullLanguage() throws SQLException, ClassNotFoundException {
         CommandsUsingMap commandsUsingMap = new CommandsUsingMap();
 
-        commandsUsingMap.greet("jack","Spanish");
-        assertEquals("SPANISH language is not available yet. \nSaw'bona, jack",commandsUsingMap.greet("jack","Spanish"));
+        commandsUsingMap.greet("Jack","Spanish");
+        assertEquals("SPANISH language is not available yet. \nSaw'bona, Jack",commandsUsingMap.greet("Jack","Spanish"));
 
     }
 
@@ -55,7 +55,7 @@ class CommandsUsingMapTests {
         commandsUsingMap.greet("Phumlani","zulu");
         commandsUsingMap.greet("Mabaso","english");
 
-        assertEquals("Greeted Names:\n{Mabaso=1, jack=1, Phumlani=2}",commandsUsingMap.greeted());
+        assertEquals("Greeted Names:\n{Mabaso=1, Jack=1, Phumlani=2}",commandsUsingMap.greeted());
     }
 
     @Test
