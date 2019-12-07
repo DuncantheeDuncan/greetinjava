@@ -1,0 +1,18 @@
+<h1>greet someone</h1>
+greeting :  {{greeting}}
+<form method="post" action="/greet">
+
+
+    enter name: <input type="text" name="greet_name">
+<!--    enter language : <input type="s" name="language">-->
+<select name="language">
+    <option value=''>select language</option>
+<!--    <option value='english'>english</option>-->
+<!--    <option value='zulu'>zulu</option>-->
+
+    {{#each listOfLanguages}}
+        <option value=""><li>{{listOfLanguages}}</li></option>
+    {{/each}}
+</select>
+    <input type="submit">
+</form>

@@ -3,7 +3,6 @@ package net.greet;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
-import static java.lang.String.valueOf;
 public class CommandsUsingJDBC implements Commands {
 
 
@@ -103,7 +102,7 @@ public class CommandsUsingJDBC implements Commands {
         try{
             return Languages.valueOf(language).getGreeting() + ", " + name;
         }catch (IllegalArgumentException e){
-            return language.toUpperCase() + " language is not available yet. \n"+ Languages.valueOf("zulu").getGreeting() + ", " + name;
+            return language.toUpperCase() + " language is not available yet.\n"+ Languages.valueOf("zulu").getGreeting() + ", " + name;
 
         }
 
@@ -149,7 +148,7 @@ public class CommandsUsingJDBC implements Commands {
             databaseMap.put(person, counter);
                 return person + " has been greeted " + counter + " times";
             }
-        return person + " has been greeted 0 times";
+        return person + " has not been greeted yet";
     }
 }
 
