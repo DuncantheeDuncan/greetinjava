@@ -1,18 +1,14 @@
 package tryApi;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSession;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.Map;
-
-import static org.graalvm.compiler.hotspot.nodes.aot.EncodedSymbolNode.encode;
 
 public class App {
+
+    public static void main(String[] args) {
+
+
+
+    }
+}
 /*URLConnection connection = new URL(“<some_url>/<endpoint>?param1=value1&param2=value2”).openConnection();
 connection.setRequestProperty("header1", header1);
 connection.setRequestProperty("header2", header2);
@@ -69,46 +65,46 @@ System.out.println( httpResponse.getHeaders().get("Content-Type"));*/
 //    }
 
 
-    public static void main(String[] args) throws IOException {
-        HostnameVerifier hv = new HostnameVerifier() {
-            public boolean verify(String urlHostName, SSLSession session) {
-                System.out.println("Warning: URL Host: "+urlHostName+" vs. "
-                        +session.getPeerHost());
-                return true;
-            }
-        };
-
-        // set this property to the location of the cert file
-        System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-
-        HttpsURLConnection.setDefaultHostnameVerifier(hv);
-        URL url = new
-                URL("https://cab.tivlab.austin.ibm.com:9431/rest/model/"+
-                "Repository?depth=1&feed=json");
-        HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
-
-        System.out.println("sending request...");
-        urlConn.setRequestMethod("GET");
-        urlConn.setAllowUserInteraction(false); // no user interaction
-        urlConn.setDoOutput(true); // want to send
-        urlConn.setRequestProperty( "Content-type", "text/xml" );
-        urlConn.setRequestProperty( "accept", "text/xml" );
-        urlConn.setRequestProperty( "authorization", "Basic " +
-                encode("administrator:collation"));
-        Map headerFields = urlConn.getHeaderFields();
-        System.out.println("header fields are: " + headerFields);
-
-        int rspCode = urlConn.getResponseCode();
-        if (rspCode == 200) {
-            InputStream ist = urlConn.getInputStream();
-            InputStreamReader isr = new InputStreamReader(ist);
-            BufferedReader br = new BufferedReader(isr);
-
-            String nextLine = br.readLine();
-            while (nextLine != null) {
-                System.out.println(nextLine);
-                nextLine = br.readLine();
-            }
-        }
-    }
-}
+//    public static void main(String[] args) throws IOException {
+//        HostnameVerifier hv = new HostnameVerifier() {
+//            public boolean verify(String urlHostName, SSLSession session) {
+//                System.out.println("Warning: URL Host: "+urlHostName+" vs. "
+//                        +session.getPeerHost());
+//                return true;
+//            }
+//        };
+//
+//        // set this property to the location of the cert file
+//        System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
+//
+//        HttpsURLConnection.setDefaultHostnameVerifier(hv);
+//        URL url = new
+//                URL("https://cab.tivlab.austin.ibm.com:9431/rest/model/"+
+//                "Repository?depth=1&feed=json");
+//        HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
+//
+//        System.out.println("sending request...");
+//        urlConn.setRequestMethod("GET");
+//        urlConn.setAllowUserInteraction(false); // no user interaction
+//        urlConn.setDoOutput(true); // want to send
+//        urlConn.setRequestProperty( "Content-type", "text/xml" );
+//        urlConn.setRequestProperty( "accept", "text/xml" );
+//        urlConn.setRequestProperty( "authorization", "Basic " +
+//                encode("administrator:collation"));
+//        Map headerFields = urlConn.getHeaderFields();
+//        System.out.println("header fields are: " + headerFields);
+//
+//        int rspCode = urlConn.getResponseCode();
+//        if (rspCode == 200) {
+//            InputStream ist = urlConn.getInputStream();
+//            InputStreamReader isr = new InputStreamReader(ist);
+//            BufferedReader br = new BufferedReader(isr);
+//
+//            String nextLine = br.readLine();
+//            while (nextLine != null) {
+//                System.out.println(nextLine);
+//                nextLine = br.readLine();
+//            }
+//        }
+//    }
+//}
