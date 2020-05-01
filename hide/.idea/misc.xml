@@ -8,7 +8,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD:hide/.idea/misc.xml
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11.0.3" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
+>>>>>>> 947a34ebd04f9798b389e864ee71c017e21db2b3:.idea/misc.xml
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
