@@ -1,0 +1,12 @@
+- to replace ALL strings concatenation with string format
+
+- when running the app it should tell you if it using temporary storage or permanent
+
+- display in different colours
+
+- print tables for help
+- to add a confirmation if a user is sure to exit
+- prevent my greeting method to take numbers as a name
+
+- fix greeted method, it does'nt return a name typed even a name exist. i must ignore cases so it will work
+ without problems

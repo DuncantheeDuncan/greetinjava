@@ -4,7 +4,8 @@ import java.sql.SQLException;
 
 public interface Commands {
 
-    String exit();
+    void exit();
+//    void exit(String confirmation);
     String help();
     String clear();
     String  counter();

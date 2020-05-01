@@ -35,10 +35,11 @@ public class CommandsUsingJDBC implements Commands {
     }
 
 
-    public String exit(){
+    public void exit(){
+        System.out.println("till next time bye -:)");
         System.exit(0);
-        return "";
     }
+
     public String help() {
         String help = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
                 "type\tgreet\tname (default language)\n" +
@@ -102,8 +103,7 @@ public class CommandsUsingJDBC implements Commands {
         try{
             return Languages.valueOf(language).getGreeting() + ", " + name;
         }catch (IllegalArgumentException e){
-            return language.toUpperCase() + " language is not available yet.\n"+ Languages.valueOf("zulu").getGreeting() + ", " + name;
-
+            return String.format("%s language is not available yet.\n%s, %s",language.toUpperCase(),Languages.valueOf("zulu").getGreeting(),name);
         }
 
 

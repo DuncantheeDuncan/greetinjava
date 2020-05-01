@@ -8,12 +8,19 @@ public class CommandsUsingMap implements Commands {
     Map<String, Integer> namesMap = new HashMap<>();
     private int greetCounter = 1;
 
-    public String exit() {
-        System.exit(0);
-        return "Till next time -:) goodbye!";
+    public void exit() {
+        System.out.println("till next time bye -:)");
+            System.exit(0);
     }
-
+//    public  void exit(String confirmation){
+//        System.out.println("are you sure you want to exit? y n yes no ?");
+//        if ("y".toUpperCase().equals(confirmation) | "yes".toUpperCase().equals(confirmation)){
+//            System.out.println("till next time bye -:)");
+//            System.exit(0);
+//        }
+//    }
     public String help() {
+
         String help = "\t\tPOSSIBLE COMMANDS THAT CAN BE USED\n\n" +
                 "type\tgreet\tname (default language)\n" +
                 "type\tgreet\tname\t---->\tlanguage\n" +
@@ -44,7 +51,7 @@ public class CommandsUsingMap implements Commands {
             namesMap.put(name, namesMap.get(name) + 1);
             return Languages.valueOf(language).getGreeting() + ", " + name;
         } catch (IllegalArgumentException e) {
-            return language.toUpperCase() + " language is not available yet. \n" + Languages.valueOf("zulu").getGreeting() + ", " + name;
+            return String.format("%s language is not available yet.\n%s, %s",language.toUpperCase(),Languages.valueOf("zulu").getGreeting(),name);
         }
     }
 

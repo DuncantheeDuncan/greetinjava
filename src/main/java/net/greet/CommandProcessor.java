@@ -35,7 +35,8 @@ public class CommandProcessor {
                 return db.clear();
             }
         } else if (commandExtractor.getCommand().equals("exit")) {
-            return db.exit();
+            //TODO confirmation method
+            db.exit();
         } else if (commandExtractor.getCommand().equals("help")) {
             return db.help();
         }
