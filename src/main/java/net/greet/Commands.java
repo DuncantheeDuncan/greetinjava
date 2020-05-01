@@ -1,18 +1,17 @@
-package net;
+package net.greet;
 
 import java.sql.SQLException;
 
 public interface Commands {
 
-    void exit();
+    String exit();
     String help();
-    void clear();
+    String clear();
     String  counter();
     String greet(String name, String language) throws SQLException;
-    void clearWithAName(String name);
+    String clearWithAName(String name) throws SQLException;
     String greeted();
-//    Map<String, Integer> greetedWithName();
-    String greetedWithName(String name);
+    String greetedWithName(String name) throws SQLException;
 }
 
 
