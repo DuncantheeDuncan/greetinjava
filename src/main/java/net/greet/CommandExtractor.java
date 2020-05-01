@@ -2,9 +2,9 @@ package net.greet;
 
 public class CommandExtractor {
 
-    String name;
-    String command;
-    String Language;
+   private String name;
+    private String command;
+    private String Language;
 
     CommandExtractor(String command) {
 
